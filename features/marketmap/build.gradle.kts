@@ -9,4 +9,7 @@ dependencies {
     implementation(Config.Libs.Androidx.material)
     implementation(Config.Libs.Androidx.vectorAnimation)
     implementation(Config.Libs.Androidx.constraint)
+
+    // modules
+    implementation(project(":tabs"))
 }
