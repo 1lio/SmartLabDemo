@@ -21,7 +21,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         const val OTHER = "Other"
     }
 
-    private fun getListStocks() = listOf(
+     fun getListStocks() = listOf(
 
         ExchangeInstrument(
             name = "Gazprom",
