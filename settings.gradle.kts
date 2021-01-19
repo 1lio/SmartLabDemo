@@ -9,6 +9,7 @@ addFeature("account")
 addFeature("chat")
 addFeature("feed")
 addFeature("splash")
+addFeature("marketmap")
 
 
 fun addFeature(moduleName: String) {
