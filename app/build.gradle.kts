@@ -31,4 +31,5 @@ dependencies {
     implementation(project(":chat"))
     implementation(project(":feed"))
     implementation(project(":splash"))
+    implementation(project(":marketmap"))
 }
