@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="TabLayoutStyle">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/white</item>
+        <item name="tabIndicatorColor">@color/blueGray</item>
+        <item name="tabMode">fixed</item>
+    </style>
+
+
+</resources>
