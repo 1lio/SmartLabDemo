@@ -11,6 +11,8 @@ addFeature("feed")
 addFeature("splash")
 addFeature("marketmap")
 
+addFeature("tabs")          // base tabs fragment
+
 
 fun addFeature(moduleName: String) {
     include(moduleName)
