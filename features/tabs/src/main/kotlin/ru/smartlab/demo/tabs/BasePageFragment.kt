@@ -9,7 +9,9 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 
-class BasePageFragment(private val adapter: FragmentPagerAdapter) : Fragment() {
+abstract class BasePageFragment : Fragment() {
+
+    var adapter: FragmentPagerAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
