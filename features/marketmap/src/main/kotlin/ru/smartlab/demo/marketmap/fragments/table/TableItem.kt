@@ -1,4 +1,4 @@
-package ru.smartlab.marketmap.fragments.table
+package ru.smartlab.demo.marketmap.fragments.table
 
 class TableItem {
 }
