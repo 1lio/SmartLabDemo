@@ -1,4 +1,6 @@
 package ru.smartlab.demo.marketmap.fragments
 
-class TableMarket {
+import androidx.fragment.app.Fragment
+
+class TableMarket : Fragment() {
 }
