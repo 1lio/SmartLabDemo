@@ -28,7 +28,7 @@ object Config {
     object Libs {
 
         object Kotlin {
-            private const val ver = "1.4.0"
+            private const val ver = "1.4.2"
             const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
             const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
             const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
