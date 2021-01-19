@@ -2,7 +2,7 @@ package ru.smartlab.demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.smartlab.demo.marketmap.fragments.MarketTabFragment
+import ru.smartlab.demo.marketmap.fragments.MarketMapMainFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .addToBackStack(null)
-            .replace(R.id.mainContainer, MarketTabFragment())
+            .replace(R.id.mainContainer, MarketMapMainFragment())
             .commit()
     }
 }

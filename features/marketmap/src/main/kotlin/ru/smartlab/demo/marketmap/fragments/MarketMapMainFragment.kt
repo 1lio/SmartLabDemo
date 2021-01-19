@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout
 import ru.smartlab.demo.marketmap.fragments.adapter.TabAdapter
 import ru.smartlab.demo.tabs.R
 
-class MarketTabFragment : Fragment() {
+class MarketMapMainFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
