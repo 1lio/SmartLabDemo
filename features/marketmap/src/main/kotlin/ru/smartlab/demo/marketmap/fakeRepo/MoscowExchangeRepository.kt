@@ -1,6 +1,6 @@
-package ru.smartlab.marketmap.fakeRepo
+package ru.smartlab.demo.marketmap.fakeRepo
 
-import ru.smartlab.marketmap.model.ExchangeInstrument
+import ru.smartlab.demo.marketmap.model.ExchangeInstrument
 
 class MoscowExchangeRepository {
 

@@ -1,4 +1,4 @@
-package ru.smartlab.marketmap.fragments
+package ru.smartlab.demo.marketmap.fragments
 
 import androidx.fragment.app.Fragment
 
