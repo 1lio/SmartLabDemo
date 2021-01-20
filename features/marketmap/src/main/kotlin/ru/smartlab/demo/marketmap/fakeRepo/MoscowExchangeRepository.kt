@@ -18,10 +18,29 @@ class MoscowExchangeRepository : ExchangeRepository {
         const val CHEMISTRY = "Chemistry"
         const val AGRO = "AGRO"
         const val MECHANICAL_ENGINEERING = "Mechanical engineering"
+        const val CONSTRUCTION = "Construction"
         const val OTHER = "Other"
     }
 
      fun getListStocks() = listOf(
+
+         ExchangeInstrument(
+             name = "PIK",
+             ticket = "PIKK",
+             group = StockGroup.CONSTRUCTION,
+             lastPrice = 643.3f,
+             lastPriceChange = -1.11f,
+             turnover = "205 млн"
+         ),
+
+         ExchangeInstrument(
+             name = "LSR",
+             ticket = "LSRG",
+             group = StockGroup.CONSTRUCTION,
+             lastPrice = 950.5f,
+             lastPriceChange = 10.03f,
+             turnover = "57 млн"
+         ),
 
         ExchangeInstrument(
             name = "Gazprom",
