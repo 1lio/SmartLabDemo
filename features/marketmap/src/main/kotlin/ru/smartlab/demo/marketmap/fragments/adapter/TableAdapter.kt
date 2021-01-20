@@ -54,7 +54,7 @@ class TableAdapter(private val list: List<ExchangeInstrument>) :
             textTurnover.text = item.turnover
 
             imageIndicator.setImageResource(R.drawable.ic_arrow)
-            imageIndicator.rotation = if (item.lastPriceChange <= 0) 180.0f else 0.0f
+            imageIndicator.rotation = if (item.lastPriceChange <= 0) 0.0f else 180.0f
         }
 
 
