@@ -54,6 +54,11 @@ object Config {
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
         }
 
+        object Mics {
+            const val surfEasyAdapter = "ru.surfstudio.android:easyadapter:2.0.0"
+            const val surfRecyclerDecorator = "ru.surfstudio.android:recycler-decorator:1.0.0"
+        }
+
         object Firebase {
             private const val bomVer = "26.0.0"
 
