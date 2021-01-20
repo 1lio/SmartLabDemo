@@ -7,13 +7,18 @@ import androidx.fragment.app.FragmentPagerAdapter
 abstract class BasePagerAdapter<T>(fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
+    private val fragments = mutableListOf<Fragment>()
+    private val title = mutableListOf<String>()
 
-    var items: (pos: Int) -> Fragment = { Fragment() }
-    var title: (pos: Int) -> String = { "" }
-    var countItems: Int = 2
+    override fun getItem(position: Int) = fragments[position]
+    override fun getCount() = fragments.size
+    override fun getPageTitle(position: Int) = title[position]
 
-    override fun getItem(position: Int) = items(position)
-    override fun getCount() = countItems
+    fun setFragments(list: List<Fragment>) {
+        fragments.addAll(list)
+    }
 
-    override fun getPageTitle(position: Int) = title(position)
+    fun setTabTitles(list: List<String>) {
+        title.addAll(list)
+    }
 }
