@@ -10,6 +10,7 @@ addFeature("chat")
 addFeature("feed")
 addFeature("splash")
 addFeature("marketmap")
+addFeature("stocklenta")
 
 addFeature("tabs")          // base tabs fragment
 
