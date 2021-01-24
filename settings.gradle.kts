@@ -5,6 +5,7 @@ rootProject.name = "SmartLabDemo"
 include(":app")
 
 addCore("core")
+addCore("navigation")
 
 
 // features
