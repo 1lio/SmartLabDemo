@@ -25,6 +25,9 @@ object Config {
         const val googleServices = "com.google.gms:google-services:4.3.4"
     }
 
+
+    private const val navVersion = "2.3.2"
+
     object Libs {
 
         object Kotlin {
@@ -56,7 +59,6 @@ object Config {
 
             // NavigationLibs
 
-            const val navVersion = "2.3.2"
 
 
             const val navigationUI = "androidx.navigation:navigation-fragment-ktx:$navVersion"
@@ -64,9 +66,6 @@ object Config {
 
             // Feature module Support
             const val navigationDynamic = "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
-
-            // Testing Navigation
-            const val navigationTesting = "androidx.navigation:navigation-testing:$navVersion"
 
         }
 
@@ -130,6 +129,9 @@ object Config {
             const val mockk = "io.mockk:mockk:1.10.2"
             const val robolectric = "org.robolectric:robolectric:4.4"
             //    const val supportRunner = "com.android.support.test:runner:1.0.2"
+
+            // Testing Navigation
+            const val navigationTesting = "androidx.navigation:navigation-testing:$navVersion"
         }
     }
 
