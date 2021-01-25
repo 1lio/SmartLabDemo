@@ -1,5 +1,4 @@
 object Config {
-
     // app
     const val appVersionName = "1.0.0"
     const val appVersionCode = 1
@@ -9,9 +8,10 @@ object Config {
     const val testDir = "src/test/kotlin"
     const val androidTestDir = "src/androidTest/kotlin"
 
-    private const val kotlinVersion = "1.4.21"
-
     const val applicationID = "ru.smartlab.demo"
+
+    private const val kotlinVersion = "1.4.21"
+    private const val navVersion = "2.3.2"
 
     object SdkVersions {
         const val compile = 30
@@ -24,9 +24,6 @@ object Config {
         const val gradleKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         const val googleServices = "com.google.gms:google-services:4.3.4"
     }
-
-
-    private const val navVersion = "2.3.2"
 
     object Libs {
 

@@ -15,6 +15,9 @@ dependencies {
     implementation(Config.Libs.Androidx.material)
     implementation(Config.Libs.Androidx.vectorAnimation)
     implementation(Config.Libs.Androidx.constraint)
+    implementation(Config.Libs.Androidx.constraint)
+    implementation(Config.Libs.Androidx.navigationUI)
+    implementation(Config.Libs.Androidx.navigationFragment)
 
     // Tests
     testImplementation(Config.Libs.Test.junit)
@@ -27,6 +30,8 @@ dependencies {
     androidTestImplementation(Config.Libs.Test.espressoIntents)
 
     // modules
+    implementation(project(":navigation"))
+
     implementation(project(":account"))
     implementation(project(":chat"))
     implementation(project(":feed"))
