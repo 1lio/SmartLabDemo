@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import ru.smartlab.demo.marketmap.R
 import ru.smartlab.demo.marketmap.fragments.adapter.TabAdapter
-import ru.smartlab.demo.tabs.R
 
 class MarketMapMainFragment : Fragment() {
 
