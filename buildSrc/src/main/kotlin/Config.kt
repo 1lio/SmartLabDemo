@@ -55,9 +55,7 @@ object Config {
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
 
             // NavigationLibs
-
-
-
+            
             const val navigationUI = "androidx.navigation:navigation-fragment-ktx:$navVersion"
             const val navigationFragment = "androidx.navigation:navigation-ui-ktx:$navVersion"
 
@@ -67,8 +65,14 @@ object Config {
         }
 
         object Mics {
+            // Surf Libs
             const val surfEasyAdapter = "ru.surfstudio.android:easyadapter:2.0.0"
             const val surfRecyclerDecorator = "ru.surfstudio.android:recycler-decorator:1.0.0"
+
+            // Other
+
+            // Java HTML Parser
+            const val jsoup = "org.jsoup:jsoup:1.13.1"
         }
 
 
