@@ -12,16 +12,13 @@ import ru.smartlab.demo.marketmap.fragments.adapter.TabAdapter
 
 class MarketMapMainFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        val v = inflater.inflate(R.layout.fr_tab, container, false)
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
+        super.onCreateView(inflater, group, state)
+
+        val v = inflater.inflate(R.layout.fr_tab, group, false)
 
         val pager: ViewPager = v.findViewById(R.id.viewPager)
-        pager.adapter = TabAdapter(context!!, fragmentManager!!)
+        pager.adapter = TabAdapter(requireContext(), childFragmentManager)
 
         val tabLayout: TabLayout = v.findViewById(R.id.tabLayout)
         tabLayout.post { tabLayout.setupWithViewPager(pager) }
