@@ -15,22 +15,20 @@ import ru.smartlab.demo.marketmap.fragments.adapter.TableAdapter
 // Demo Variant - not optimized (BAD VARIANT)
 class TableMarket : Fragment() {
 
-    // Tmp
-    private val listData = MoscowExchangeRepository().getListStocks()
+    private val gazAndOilList = MoscowExchangeRepository().getStockList { it.group == Direction.GAZ_AND_OIL }
 
-    private val gazAndOilList = listData.filter { it.group == Direction.GAZ_AND_OIL }
-    private val financeList = listData.filter { it.group == Direction.FINANCE }
-    private val metallurgyList = listData.filter { it.group == Direction.METALLURGY }
-    private val itList = listData.filter { it.group == Direction.IT }
-    private val consumerSectorList = listData.filter { it.group == Direction.CONSUMER_SECTOR }
-    private val energyList = listData.filter { it.group == Direction.ENERGY }
-    private val transportList = listData.filter { it.group == Direction.TRANSPORT }
-    private val chemistryList = listData.filter { it.group == Direction.CHEMISTRY }
-    private val agroList = listData.filter { it.group == Direction.AGRO }
-    private val mechanicalEngineeringList = listData.filter { it.group == Direction.MECHANICAL_ENGINEERING }
-    private val constructionList = listData.filter { it.group == Direction.CONSTRUCTION }
+    private val financeList =  MoscowExchangeRepository().getStockList  { it.group == Direction.FINANCE }
+    private val metallurgyList =  MoscowExchangeRepository().getStockList  { it.group == Direction.METALLURGY }
+    private val itList =  MoscowExchangeRepository().getStockList  { it.group == Direction.IT }
+    private val consumerSectorList =  MoscowExchangeRepository().getStockList  { it.group == Direction.CONSUMER_SECTOR }
+    private val energyList =  MoscowExchangeRepository().getStockList  { it.group == Direction.ENERGY }
+    private val transportList =  MoscowExchangeRepository().getStockList  { it.group == Direction.TRANSPORT }
+    private val chemistryList =  MoscowExchangeRepository().getStockList  { it.group == Direction.CHEMISTRY }
+    private val agroList =  MoscowExchangeRepository().getStockList  { it.group == Direction.AGRO }
+    private val mechanicalEngineeringList =  MoscowExchangeRepository().getStockList  { it.group == Direction.MECHANICAL_ENGINEERING }
+    private val constructionList =  MoscowExchangeRepository().getStockList  { it.group == Direction.CONSTRUCTION }
 
-    private val otherList = listData.filter { it.group == Direction.OTHER }
+    private val otherList =  MoscowExchangeRepository().getStockList  { it.group == Direction.OTHER }
 
     private lateinit var gazAndOilRecycler: RecyclerView
     private lateinit var financeRecycler: RecyclerView
@@ -45,14 +43,10 @@ class TableMarket : Fragment() {
     private lateinit var constructionRecycler: RecyclerView
     private lateinit var otherRecycler: RecyclerView
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
+        super.onCreateView(inflater, group, state)
 
-        val v = inflater.inflate(R.layout.table_fragment, container, false)
+        val v = inflater.inflate(R.layout.table_fragment, group, false)
 
         gazAndOilRecycler = v.findViewById(R.id.recyclerGaz)
         financeRecycler = v.findViewById(R.id.recyclerFinance)
@@ -66,7 +60,6 @@ class TableMarket : Fragment() {
         mechanicalEngineeringRecycler = v.findViewById(R.id.recyclerMechanical)
         constructionRecycler = v.findViewById(R.id.recyclerConstruction)
         otherRecycler = v.findViewById(R.id.recyclerOther)
-
 
         val groupRecycler = listOf(
             gazAndOilRecycler,

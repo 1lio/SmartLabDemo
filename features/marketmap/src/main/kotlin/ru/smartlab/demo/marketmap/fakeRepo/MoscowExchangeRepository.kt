@@ -1,15 +1,12 @@
 package ru.smartlab.demo.marketmap.fakeRepo
 
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import ru.smartlab.demo.core.entity.ExchangeInstrument
 import ru.smartlab.demo.core.enum.ExInstrument
 import ru.smartlab.demo.marketmap.repository.ExchangeRepository
 
 class MoscowExchangeRepository : ExchangeRepository {
 
-
-    fun getListStocks() = listOf(
+    private fun getListStocks() = listOf(
 
         ExchangeInstrument(
             name = "PIK",
@@ -280,8 +277,8 @@ class MoscowExchangeRepository : ExchangeRepository {
 
         )
 
-    override fun getStockList(): Flow<List<ExchangeInstrument>> =
-        flow {
-            emit(getListStocks()) // Fake
-        }
+    override fun getStockList(filter: (instrument: ExchangeInstrument) -> Boolean): List<ExchangeInstrument> {
+        return getListStocks().filter { filter(it) }
+    }
+
 }
