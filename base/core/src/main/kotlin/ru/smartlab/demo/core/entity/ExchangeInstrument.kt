@@ -13,5 +13,5 @@ data class ExchangeInstrument(
     val index: List<String> = listOf(), // Индекс (IMOEX, MOEX10, IRTS, RTS2)
     val lastPrice: Float = 200f,
     val lastPriceChange: Float = -1.26f,
-    val turnover: String = "14,4 млрд"
+    val turnover: Long = 14_400_000_000L
 )
