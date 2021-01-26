@@ -15,12 +15,8 @@ addModule("splash")
 addModule("marketmap")
 addModule("stocklenta")
 
-addModule("tabs")          // base tabs fragment
-
 //tmp
 addModule("navigation", isCore = true)
-
-
 
 fun addModule(moduleName: String, isCore: Boolean = false) {
 
