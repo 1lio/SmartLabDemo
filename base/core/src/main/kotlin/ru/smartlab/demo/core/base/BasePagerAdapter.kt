@@ -1,4 +1,4 @@
-package ru.smartlab.demo.tabs
+package ru.smartlab.demo.core.base
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

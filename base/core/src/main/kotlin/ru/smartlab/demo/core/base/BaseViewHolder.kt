@@ -1,4 +1,4 @@
-package ru.smartlab.demo.tabs
+package ru.smartlab.demo.core.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
