@@ -5,7 +5,7 @@ rootProject.name = "SmartLabDemo"
 include(":app")
 
 addCore("core")
-
+//addCore("navigation")
 
 // features
 addFeature("account")
@@ -23,8 +23,32 @@ fun addFeature(moduleName: String) {
     project(":$moduleName").projectDir = File(rootDir, "/features/$moduleName")
 }
 
-
 fun addCore(moduleName: String) {
+
+    // Check dir
+    val modulePath = "base/$moduleName"
+    val moduleDir = File(rootDir, modulePath)
+
+    if (!moduleDir.exists()) {
+
+        // make Module Directory
+        moduleDir.mkdir()
+
+        // create build.gradle.kts file
+        val gradleConfig = """
+            dependencies {
+                implementation(Config.Libs.Androidx.appCompat)
+                implementation(Config.Libs.Androidx.core)
+            }
+        """.trimIndent();
+
+        val gradleFile = File( "//$moduleName/build.gradle.kts", gradleConfig)
+
+        gradleFile.createNewFile()
+
+        // make Package Directory
+    }
+
     include(moduleName)
-    project(":$moduleName").projectDir = File(rootDir, "/base/$moduleName")
+    project(":$moduleName").projectDir = File(rootDir, modulePath)
 }
