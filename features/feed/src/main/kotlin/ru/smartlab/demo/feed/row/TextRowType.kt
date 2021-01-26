@@ -1,22 +1,25 @@
 package ru.smartlab.demo.feed.row
 
-import android.util.Log
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import ru.smartlab.demo.feed.factory.ViewHolderFactory
+import ru.smartlab.demo.feed.model.Feed
 
-class TextRowType(private val text: String) : RowType {
+class TextRowType(private val item: Feed) : RowType {
 
     override fun getItemType(): Int = RowType.TEXT
 
-    private fun getOnClickListener(): View.OnClickListener {
-        return View.OnClickListener {
-            Log.i("ROW TYPE", "text is CLicked")
-        }
-    }
-
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder) {
-        val holder: ViewHolderFactory.TextViewHolder = viewHolder as ViewHolderFactory.TextViewHolder
-        //holder.contentTextView.text = text
+        val holder = viewHolder as ViewHolderFactory.TextViewHolder
+
+        holder.avatarImg.background
+        holder.likeView.background
+
+        holder.contentTextView.text = item.title
+        holder.authorTextView.text = item.author
+        holder.dateTextView.text = item.date
+
+        holder.countViews.text = item.countViews.toString()
+        holder.countComments.text = item.countComments.toString()
+        holder.countLikes.text = item.countLikes.toString()
     }
 }
