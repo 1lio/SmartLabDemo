@@ -277,6 +277,7 @@ class MoscowExchangeRepository : ExchangeRepository {
 
         )
 
+    // TODO: Исправить данную функцию. При пустом варианте ничего не вернет.
     override fun getStockList(filter: (instrument: ExchangeInstrument) -> Boolean): List<ExchangeInstrument> {
         return getListStocks().filter { filter(it) }
     }
