@@ -3,49 +3,36 @@ package ru.smartlab.demo.marketmap.fakeRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import ru.smartlab.demo.core.entity.ExchangeInstrument
+import ru.smartlab.demo.core.enum.ExInstrument
 import ru.smartlab.demo.marketmap.repository.ExchangeRepository
 
 class MoscowExchangeRepository : ExchangeRepository {
 
-    object StockGroup {
-        const val GAZ_AND_OIL = "Gaz and Oil"
-        const val FINANCE = "Finances"
-        const val METALLURGY = "Metallurgy"
-        const val IT = "IT"
-        const val CONSUMER_SECTOR = "Consumer sector"
-        const val ENERGY = "Energy"
-        const val TRANSPORT = "Transport"
-        const val CHEMISTRY = "Chemistry"
-        const val AGRO = "AGRO"
-        const val MECHANICAL_ENGINEERING = "Mechanical engineering"
-        const val CONSTRUCTION = "Construction"
-        const val OTHER = "Other"
-    }
 
-     fun getListStocks() = listOf(
+    fun getListStocks() = listOf(
 
-         ExchangeInstrument(
-             name = "PIK",
-             ticket = "PIKK",
-             group = StockGroup.CONSTRUCTION,
-             lastPrice = 643.3f,
-             lastPriceChange = -1.11f,
-             turnover = "205 млн"
-         ),
+        ExchangeInstrument(
+            name = "PIK",
+            ticket = "PIKK",
+            group = ExInstrument.Direction.CONSTRUCTION,
+            lastPrice = 643.3f,
+            lastPriceChange = -1.11f,
+            turnover = "205 млн"
+        ),
 
-         ExchangeInstrument(
-             name = "LSR",
-             ticket = "LSRG",
-             group = StockGroup.CONSTRUCTION,
-             lastPrice = 950.5f,
-             lastPriceChange = 10.03f,
-             turnover = "57 млн"
-         ),
+        ExchangeInstrument(
+            name = "LSR",
+            ticket = "LSRG",
+            group = ExInstrument.Direction.CONSTRUCTION,
+            lastPrice = 950.5f,
+            lastPriceChange = 10.03f,
+            turnover = "57 млн"
+        ),
 
         ExchangeInstrument(
             name = "Gazprom",
             ticket = "GAZP",
-            group = StockGroup.GAZ_AND_OIL,
+            group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 224.03f,
             lastPriceChange = -1.26f,
             turnover = "14.4 млрд"
@@ -54,7 +41,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Lukhoil",
             ticket = "LKOH",
-            group = StockGroup.GAZ_AND_OIL,
+            group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 5871.5f,
             lastPriceChange = -0.03f,
             turnover = "7.1 млрд"
@@ -63,7 +50,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Rosneft",
             ticket = "ROSN",
-            group = StockGroup.GAZ_AND_OIL,
+            group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 509.5f,
             lastPriceChange = -0.66f,
             turnover = "6.3 млрд"
@@ -71,7 +58,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "TanNeft",
             ticket = "TATN",
-            group = StockGroup.GAZ_AND_OIL,
+            group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 529.5f,
             lastPriceChange = -0.66f,
             turnover = "1.9 млрд"
@@ -79,7 +66,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Novatek",
             ticket = "NVKT",
-            group = StockGroup.GAZ_AND_OIL,
+            group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 1374.5f,
             lastPriceChange = -1.18f,
             turnover = "1.36 млрд"
@@ -88,7 +75,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "GazPromNeft",
             ticket = "Sibn",
-            group = StockGroup.GAZ_AND_OIL,
+            group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 35.965f,
             lastPriceChange = -0.74f,
             turnover = "14.4 млрд"
@@ -96,7 +83,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Yatek",
             ticket = "YATG",
-            group = StockGroup.GAZ_AND_OIL,
+            group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 35.965f,
             lastPriceChange = -0.74f,
             turnover = "14.4 млрд"
@@ -107,7 +94,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "SBER",
             ticket = "SBER",
-            group = StockGroup.FINANCE,
+            group = ExInstrument.Direction.FINANCE,
             lastPrice = 227.965f,
             lastPriceChange = -0.88f,
             turnover = "15.4 млрд"
@@ -116,7 +103,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Moscow Exchange",
             ticket = "MOEX",
-            group = StockGroup.FINANCE,
+            group = ExInstrument.Direction.FINANCE,
             lastPrice = 165.555f,
             lastPriceChange = 3.4f,
             turnover = "3.4 млрд"
@@ -127,7 +114,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Nornikel",
             ticket = "GMKN",
-            group = StockGroup.METALLURGY,
+            group = ExInstrument.Direction.METALLURGY,
             lastPrice = 25750f,
             lastPriceChange = -0.48f,
             turnover = "4.9 млрд"
@@ -135,7 +122,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Alrosa",
             ticket = "ALRS",
-            group = StockGroup.METALLURGY,
+            group = ExInstrument.Direction.METALLURGY,
             lastPrice = 103.46f,
             lastPriceChange = -0.39f,
             turnover = "4.9 млрд"
@@ -144,7 +131,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Yandex",
             ticket = "YNDX",
-            group = StockGroup.IT,
+            group = ExInstrument.Direction.IT,
             lastPrice = 4999.46f,
             lastPriceChange = -0.97f,
             turnover = "2.99 млрд"
@@ -152,7 +139,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "OZON-DR",
             ticket = "OZON",
-            group = StockGroup.IT,
+            group = ExInstrument.Direction.IT,
             lastPrice = 3971.5f,
             lastPriceChange = -4.7f,
             turnover = "1.99 млрд"
@@ -162,7 +149,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Magnit",
             ticket = "MGNT",
-            group = StockGroup.CONSUMER_SECTOR,
+            group = ExInstrument.Direction.CONSUMER_SECTOR,
             lastPrice = 5177.46f,
             lastPriceChange = -0.8f,
             turnover = "2.26 млрд"
@@ -171,7 +158,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "X5 Grope",
             ticket = "FIVE",
-            group = StockGroup.CONSUMER_SECTOR,
+            group = ExInstrument.Direction.CONSUMER_SECTOR,
             lastPrice = 2750f,
             lastPriceChange = 1.16f,
             turnover = "730 млн"
@@ -180,7 +167,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "InterRao",
             ticket = "IRAO",
-            group = StockGroup.ENERGY,
+            group = ExInstrument.Direction.ENERGY,
             lastPrice = 5378.46f,
             lastPriceChange = -0.54f,
             turnover = "771 млн"
@@ -189,7 +176,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Yaroslawsk SK",
             ticket = "YRSBP",
-            group = StockGroup.ENERGY,
+            group = ExInstrument.Direction.ENERGY,
             lastPrice = 2750f,
             lastPriceChange = 4.4f,
             turnover = "13.3 млн"
@@ -199,7 +186,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Aeroflot",
             ticket = "AFLT",
-            group = StockGroup.TRANSPORT,
+            group = ExInstrument.Direction.TRANSPORT,
             lastPrice = 73.76f,
             lastPriceChange = 1.3f,
             turnover = "1.75 млрд"
@@ -208,7 +195,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Sowkom Flot",
             ticket = "FLOT",
-            group = StockGroup.ENERGY,
+            group = ExInstrument.Direction.ENERGY,
             lastPrice = 91.42f,
             lastPriceChange = -0.64f,
             turnover = "79.3 млн"
@@ -217,7 +204,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "FosAgro",
             ticket = "PHOR",
-            group = StockGroup.CHEMISTRY,
+            group = ExInstrument.Direction.CHEMISTRY,
             lastPrice = 3415f,
             lastPriceChange = -1.3f,
             turnover = "545 млн"
@@ -226,7 +213,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "AKRON",
             ticket = "AKRN",
-            group = StockGroup.CHEMISTRY,
+            group = ExInstrument.Direction.CHEMISTRY,
             lastPrice = 5982f,
             lastPriceChange = 0f,
             turnover = "22.3 млн"
@@ -237,7 +224,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Qiwi",
             ticket = "QIWI",
-            group = StockGroup.OTHER,
+            group = ExInstrument.Direction.OTHER,
             lastPrice = 773f,
             lastPriceChange = 0f,
             turnover = "148 млн"
@@ -246,7 +233,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Telegraf",
             ticket = "CNTL",
-            group = StockGroup.OTHER,
+            group = ExInstrument.Direction.OTHER,
             lastPrice = 18f,
             lastPriceChange = -6f,
             turnover = "51 млн"
@@ -256,7 +243,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Agro",
             ticket = "ARGO",
-            group = StockGroup.AGRO,
+            group = ExInstrument.Direction.AGRO,
             lastPrice = 892.1f,
             lastPriceChange = 0.09f,
             turnover = "135 млн"
@@ -265,7 +252,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "Russgrain",
             ticket = "RUGR",
-            group = StockGroup.AGRO,
+            group = ExInstrument.Direction.AGRO,
             lastPrice = 9.044f,
             lastPriceChange = -0.33f,
             turnover = "11,5 млн"
@@ -275,7 +262,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "obk",
             ticket = "UWGN",
-            group = StockGroup.MECHANICAL_ENGINEERING,
+            group = ExInstrument.Direction.MECHANICAL_ENGINEERING,
             lastPrice = 144.3f,
             lastPriceChange = 0f,
             turnover = "9 млн"
@@ -284,7 +271,7 @@ class MoscowExchangeRepository : ExchangeRepository {
         ExchangeInstrument(
             name = "GAZ",
             ticket = "GAZA",
-            group = StockGroup.MECHANICAL_ENGINEERING,
+            group = ExInstrument.Direction.MECHANICAL_ENGINEERING,
             lastPrice = 481.5f,
             lastPriceChange = 2.01f,
             turnover = "7,8 млн"
