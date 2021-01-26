@@ -2,7 +2,7 @@ package ru.smartlab.demo.marketmap.fakeRepo
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import ru.smartlab.demo.marketmap.model.ExchangeInstrument
+import ru.smartlab.demo.core.entity.ExchangeInstrument
 import ru.smartlab.demo.marketmap.repository.ExchangeRepository
 
 class MoscowExchangeRepository : ExchangeRepository {

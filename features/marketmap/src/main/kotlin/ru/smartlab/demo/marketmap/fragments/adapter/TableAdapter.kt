@@ -1,7 +1,6 @@
 package ru.smartlab.demo.marketmap.fragments.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ru.smartlab.demo.marketmap.R
-import ru.smartlab.demo.marketmap.model.ExchangeInstrument
+import ru.smartlab.demo.core.entity.ExchangeInstrument
 
 class TableAdapter(private val list: List<ExchangeInstrument>) :
     RecyclerView.Adapter<TableAdapter.TableViewHolder>() {

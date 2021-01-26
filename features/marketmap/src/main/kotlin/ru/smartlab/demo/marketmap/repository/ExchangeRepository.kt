@@ -1,7 +1,7 @@
 package ru.smartlab.demo.marketmap.repository
 
 import kotlinx.coroutines.flow.Flow
-import ru.smartlab.demo.marketmap.model.ExchangeInstrument
+import ru.smartlab.demo.core.entity.ExchangeInstrument
 
 interface ExchangeRepository {
 

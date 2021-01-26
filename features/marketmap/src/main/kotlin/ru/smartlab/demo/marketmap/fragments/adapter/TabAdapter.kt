@@ -6,7 +6,7 @@ import ru.smartlab.demo.core.base.BasePagerAdapter
 import ru.smartlab.demo.marketmap.R
 import ru.smartlab.demo.marketmap.fragments.MapMarket
 import ru.smartlab.demo.marketmap.fragments.TableMarket
-import ru.smartlab.demo.marketmap.model.ExchangeInstrument
+import ru.smartlab.demo.core.entity.ExchangeInstrument
 
 class TabAdapter(context: Context, fm: FragmentManager) : BasePagerAdapter<ExchangeInstrument>(fm) {
 
