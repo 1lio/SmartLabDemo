@@ -1,5 +1,4 @@
 object Config {
-
     // app
     const val appVersionName = "1.0.0"
     const val appVersionCode = 1
@@ -9,9 +8,10 @@ object Config {
     const val testDir = "src/test/kotlin"
     const val androidTestDir = "src/androidTest/kotlin"
 
-    private const val kotlinVersion = "1.4.21"
-
     const val applicationID = "ru.smartlab.demo"
+
+    private const val kotlinVersion = "1.4.21"
+    private const val navVersion = "2.3.2"
 
     object SdkVersions {
         const val compile = 30
@@ -20,7 +20,7 @@ object Config {
     }
 
     object Plugins {
-        const val gradleAndroid = "com.android.tools.build:gradle:4.1.1"
+        const val gradleAndroid = "com.android.tools.build:gradle:4.1.2"
         const val gradleKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         const val googleServices = "com.google.gms:google-services:4.3.4"
     }
@@ -31,7 +31,8 @@ object Config {
             private const val ver = "1.4.2"
             const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
             const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
-            const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
+            const val coroutinesPlayServices =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
         }
 
         object Androidx {
@@ -52,11 +53,29 @@ object Config {
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
             const val material = "com.google.android.material:material:1.2.1"
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
+
+            // NavigationLibs
+
+
+
+            const val navigationUI = "androidx.navigation:navigation-fragment-ktx:$navVersion"
+            const val navigationFragment = "androidx.navigation:navigation-ui-ktx:$navVersion"
+
+            // Feature module Support
+            const val navigationDynamic = "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
+
         }
 
         object Mics {
             const val surfEasyAdapter = "ru.surfstudio.android:easyadapter:2.0.0"
             const val surfRecyclerDecorator = "ru.surfstudio.android:recycler-decorator:1.0.0"
+        }
+
+
+        object Compose {
+
+            // Navigation
+            const val navigationCompose = "androidx.navigation:navigation-compose:1.0.0-alpha05"
         }
 
         object Firebase {
@@ -79,8 +98,8 @@ object Config {
             const val converterGson = "com.squareup.retrofit2:converter-gson:$retrofitVer"
 
             const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.8.1"
-            const val okhttp =  "com.squareup.okhttp3:okhttp:4.5.0"
-            const val websocket =  "org.java-websocket:Java-WebSocket:1.5.1"
+            const val okhttp = "com.squareup.okhttp3:okhttp:4.5.0"
+            const val websocket = "org.java-websocket:Java-WebSocket:1.5.1"
         }
 
         object Rx {
@@ -106,7 +125,10 @@ object Config {
             const val espressoIntents = "androidx.test.espresso:espresso-intents:3.3.0"
             const val mockk = "io.mockk:mockk:1.10.2"
             const val robolectric = "org.robolectric:robolectric:4.4"
-        //    const val supportRunner = "com.android.support.test:runner:1.0.2"
+            //    const val supportRunner = "com.android.support.test:runner:1.0.2"
+
+            // Testing Navigation
+            const val navigationTesting = "androidx.navigation:navigation-testing:$navVersion"
         }
     }
 
