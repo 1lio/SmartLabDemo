@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
-import ru.smartlab.demo.feed.model.Feed
-import java.io.IOException
+import ru.smartlab.demo.core.entity.Topic
+import ru.smartlab.demo.core.entity.User
 
 class ParseService {
 
@@ -33,7 +33,7 @@ class ParseService {
      }*/
 
 
-    suspend fun subscribeBNews(): Flow<Feed> = flow {
+    suspend fun subscribeBNews(): Flow<Topic> = flow {
 
         val jsoupDocument = Jsoup
             .connect("https://smart-lab.ru/")
@@ -52,7 +52,9 @@ class ParseService {
 
             val date = e.select(".date ").text()
 
-            val author = e.select(".author").text()
+            val author = User(
+                name = e.select(".author").text()
+            )
 
             val likes = e.select(".total").text().let {
                 if (it.isNullOrEmpty()) 0 else it.toInt()
@@ -69,7 +71,7 @@ class ParseService {
             }
 
 
-            val feed = Feed(
+            val feed = Topic(
                 title = title,
                 content = content,
                 author = author,

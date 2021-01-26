@@ -1,10 +1,11 @@
-package ru.smartlab.demo.feed.model
+package ru.smartlab.demo.core.entity
 
-data class Feed(
+data class Topic(
 
     val title: String = "",
     val content: String = "",
-    val author: String = "",     // USE MODEL
+
+    val author: User = User("default"),
     val date: String = "",
 
     val countViews: Int = 0,

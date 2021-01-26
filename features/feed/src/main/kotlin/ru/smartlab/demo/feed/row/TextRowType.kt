@@ -2,9 +2,9 @@ package ru.smartlab.demo.feed.row
 
 import androidx.recyclerview.widget.RecyclerView
 import ru.smartlab.demo.feed.factory.ViewHolderFactory
-import ru.smartlab.demo.feed.model.Feed
+import ru.smartlab.demo.core.entity.Topic
 
-class TextRowType(private val item: Feed) : RowType {
+class TextRowType(private val item: Topic) : RowType {
 
     override fun getItemType(): Int = RowType.TEXT
 
@@ -19,7 +19,7 @@ class TextRowType(private val item: Feed) : RowType {
             
             ${item.content}
         """.trimIndent())
-        holder.authorTextView.text = item.author
+        holder.authorTextView.text = item.author.name
         holder.dateTextView.text = item.date
 
         holder.countViews.text = item.countViews.toString()
