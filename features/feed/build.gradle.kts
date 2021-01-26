@@ -11,4 +11,7 @@ dependencies {
     implementation(Config.Libs.Kotlin.coroutinesAndroid)
 
     implementation(Config.Libs.Mics.jsoup)
+
+    // modules
+    api(project(":core"))
 }
