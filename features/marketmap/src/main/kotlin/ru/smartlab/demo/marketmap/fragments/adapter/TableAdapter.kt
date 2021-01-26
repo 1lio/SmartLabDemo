@@ -8,29 +8,21 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
-import ru.smartlab.demo.marketmap.R
+import ru.smartlab.demo.core.base.BaseRecyclerAdapter
+import ru.smartlab.demo.core.base.BaseViewHolder
 import ru.smartlab.demo.core.entity.ExchangeInstrument
+import ru.smartlab.demo.marketmap.R
 
-class TableAdapter(private val list: List<ExchangeInstrument>) :
-    RecyclerView.Adapter<TableAdapter.TableViewHolder>() {
+class TableAdapter : BaseRecyclerAdapter<ExchangeInstrument, TableAdapter.TableViewHolder>() {
 
     private var ctx: Context? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
         ctx = parent.context
-        return TableViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.table_item, parent, false)
-        )
+        return TableViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.table_item, parent, false))
     }
 
-    override fun onBindViewHolder(holder: TableViewHolder, position: Int) {
-        holder.bind(position)
-    }
-
-    override fun getItemCount(): Int = list.size
-
-    inner class TableViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+    inner class TableViewHolder(v: View) : BaseViewHolder<ExchangeInstrument>(v) {
 
         private val tableItemContainer: ConstraintLayout = v.findViewById(R.id.tableItemContainer)
         private val textTicket: TextView = v.findViewById(R.id.textTicket)
@@ -40,10 +32,7 @@ class TableAdapter(private val list: List<ExchangeInstrument>) :
         private val textTurnover: TextView = v.findViewById(R.id.textTurnover)
         private val imageIndicator: AppCompatImageView = v.findViewById(R.id.imageIndicator)
 
-        fun bind(position: Int) {
-
-            val item = list[position]
-
+        override fun bind(item: ExchangeInstrument) {
             tableItemContainer.setBackgroundColor(getColor(item.lastPriceChange.toInt()))
 
             textTicket.text = item.ticket
@@ -55,7 +44,6 @@ class TableAdapter(private val list: List<ExchangeInstrument>) :
             imageIndicator.setImageResource(R.drawable.ic_arrow)
             imageIndicator.rotation = if (item.lastPriceChange <= 0) 0.0f else 180.0f
         }
-
 
         private fun getColor(percent: Int): Int {
 

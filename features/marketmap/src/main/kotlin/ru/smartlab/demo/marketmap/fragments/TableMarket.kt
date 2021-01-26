@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.smartlab.demo.core.enum.ExInstrument.Direction
 import ru.smartlab.demo.marketmap.R
 import ru.smartlab.demo.marketmap.fakeRepo.MoscowExchangeRepository
-import ru.smartlab.demo.marketmap.fakeRepo.MoscowExchangeRepository.StockGroup
 import ru.smartlab.demo.marketmap.fragments.adapter.TableAdapter
 
 // Demo Variant - not optimized (BAD VARIANT)
@@ -18,20 +18,19 @@ class TableMarket : Fragment() {
     // Tmp
     private val listData = MoscowExchangeRepository().getListStocks()
 
-    private val gazAndOilList = listData.filter { it.group == StockGroup.GAZ_AND_OIL }
-    private val financeList = listData.filter { it.group == StockGroup.FINANCE }
-    private val metallurgyList = listData.filter { it.group == StockGroup.METALLURGY }
-    private val itList = listData.filter { it.group == StockGroup.IT }
-    private val consumerSectorList = listData.filter { it.group == StockGroup.CONSUMER_SECTOR }
-    private val energyList = listData.filter { it.group == StockGroup.ENERGY }
-    private val transportList = listData.filter { it.group == StockGroup.TRANSPORT }
-    private val chemistryList = listData.filter { it.group == StockGroup.CHEMISTRY }
-    private val agroList = listData.filter { it.group == StockGroup.AGRO }
-    private val mechanicalEngineeringList =
-        listData.filter { it.group == StockGroup.MECHANICAL_ENGINEERING }
-    private val constructionList = listData.filter { it.group == StockGroup.CONSTRUCTION }
+    private val gazAndOilList = listData.filter { it.group == Direction.GAZ_AND_OIL }
+    private val financeList = listData.filter { it.group == Direction.FINANCE }
+    private val metallurgyList = listData.filter { it.group == Direction.METALLURGY }
+    private val itList = listData.filter { it.group == Direction.IT }
+    private val consumerSectorList = listData.filter { it.group == Direction.CONSUMER_SECTOR }
+    private val energyList = listData.filter { it.group == Direction.ENERGY }
+    private val transportList = listData.filter { it.group == Direction.TRANSPORT }
+    private val chemistryList = listData.filter { it.group == Direction.CHEMISTRY }
+    private val agroList = listData.filter { it.group == Direction.AGRO }
+    private val mechanicalEngineeringList = listData.filter { it.group == Direction.MECHANICAL_ENGINEERING }
+    private val constructionList = listData.filter { it.group == Direction.CONSTRUCTION }
 
-    private val otherList = listData.filter { it.group == StockGroup.OTHER }
+    private val otherList = listData.filter { it.group == Direction.OTHER }
 
     private lateinit var gazAndOilRecycler: RecyclerView
     private lateinit var financeRecycler: RecyclerView
@@ -100,8 +99,10 @@ class TableMarket : Fragment() {
         )
 
         groupRecycler.forEachIndexed { index, view ->
+            val adapter = TableAdapter()
             view.layoutManager = GridLayoutManager(context, 3)
-            view.adapter = TableAdapter(groupList[index])
+            view.adapter = adapter
+            adapter.addAllAndNotify(groupList[index])
         }
 
         return v
