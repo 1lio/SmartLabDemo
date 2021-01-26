@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.VideoView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import ru.smartlab.demo.feed.R
@@ -55,12 +56,12 @@ object ViewHolderFactory {
         val likeView: AppCompatImageView = view.findViewById(R.id.likeImg)
 
         val contentTextView: TextView = view.findViewById(R.id.contentText)
-       // val contentVideoView: VideoView = view.findViewById(R.id.videoContentView)
+        val contentVideoView: VideoView = view.findViewById(R.id.videoContentView)
     }
 
     fun create(parent: ViewGroup, itemType: Int): RecyclerView.ViewHolder {
         return when (itemType) {
-            RowType.TEXT -> VideoViewHolder(R.layout.card_text.inflate(parent))
+            RowType.TEXT -> TextViewHolder(R.layout.card_text.inflate(parent))
             RowType.IMAGE -> ImageViewHolder(R.layout.card_text_img.inflate(parent))
             RowType.VIDEO -> VideoViewHolder(R.layout.card_text_video.inflate(parent))
             else -> VideoViewHolder(R.layout.card_text.inflate(parent))
