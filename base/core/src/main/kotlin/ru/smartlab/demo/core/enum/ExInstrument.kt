@@ -1,6 +1,6 @@
 package ru.smartlab.demo.core.enum
 
-object ExchangeInstrument {
+object ExInstrument {
 
     // Инструменты предоставляемые биржей
     object Type {
