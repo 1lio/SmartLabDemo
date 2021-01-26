@@ -11,5 +11,5 @@ dependencies {
     implementation(Config.Libs.Androidx.constraint)
 
     // modules
-    implementation(project(":tabs"))
+    api(project(":core"))
 }
