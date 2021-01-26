@@ -14,7 +14,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.CONSTRUCTION,
             lastPrice = 643.3f,
             lastPriceChange = -1.11f,
-            turnover = "205 млн"
+            turnover = 205_000_000
         ),
 
         ExchangeInstrument(
@@ -23,7 +23,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.CONSTRUCTION,
             lastPrice = 950.5f,
             lastPriceChange = 10.03f,
-            turnover = "57 млн"
+            turnover = 57_000_000
         ),
 
         ExchangeInstrument(
@@ -32,7 +32,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 224.03f,
             lastPriceChange = -1.26f,
-            turnover = "14.4 млрд"
+            turnover = 14_400_000_000
         ),
 
         ExchangeInstrument(
@@ -41,7 +41,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 5871.5f,
             lastPriceChange = -0.03f,
-            turnover = "7.1 млрд"
+            turnover = 7_400_000_000
         ),
 
         ExchangeInstrument(
@@ -50,7 +50,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 509.5f,
             lastPriceChange = -0.66f,
-            turnover = "6.3 млрд"
+            turnover = 6_400_000_000
         ),
         ExchangeInstrument(
             name = "TanNeft",
@@ -58,7 +58,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 529.5f,
             lastPriceChange = -0.66f,
-            turnover = "1.9 млрд"
+            turnover = 2_000_000_000
         ),
         ExchangeInstrument(
             name = "Novatek",
@@ -66,7 +66,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 1374.5f,
             lastPriceChange = -1.18f,
-            turnover = "1.36 млрд"
+            turnover = 1_360_000_000
         ),
 
         ExchangeInstrument(
@@ -75,7 +75,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 35.965f,
             lastPriceChange = -0.74f,
-            turnover = "14.4 млрд"
+            turnover = 14_360_000_000
         ),
         ExchangeInstrument(
             name = "Yatek",
@@ -83,7 +83,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.GAZ_AND_OIL,
             lastPrice = 35.965f,
             lastPriceChange = -0.74f,
-            turnover = "14.4 млрд"
+            turnover = 14_400_000_000
         ),
 
         //fin
@@ -94,7 +94,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.FINANCE,
             lastPrice = 227.965f,
             lastPriceChange = -0.88f,
-            turnover = "15.4 млрд"
+            turnover = 15_360_000_000
         ),
 
         ExchangeInstrument(
@@ -103,7 +103,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.FINANCE,
             lastPrice = 165.555f,
             lastPriceChange = 3.4f,
-            turnover = "3.4 млрд"
+            turnover = 3_460_000_000
         ),
 
         //metal
@@ -114,7 +114,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.METALLURGY,
             lastPrice = 25750f,
             lastPriceChange = -0.48f,
-            turnover = "4.9 млрд"
+            turnover = 5_000_000_000
         ),
         ExchangeInstrument(
             name = "Alrosa",
@@ -122,7 +122,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.METALLURGY,
             lastPrice = 103.46f,
             lastPriceChange = -0.39f,
-            turnover = "4.9 млрд"
+            turnover = 5_000_000_000
         ),
         //it
         ExchangeInstrument(
@@ -131,7 +131,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.IT,
             lastPrice = 4999.46f,
             lastPriceChange = -0.97f,
-            turnover = "2.99 млрд"
+            turnover = 3_000_000_000
         ),
         ExchangeInstrument(
             name = "OZON-DR",
@@ -139,7 +139,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.IT,
             lastPrice = 3971.5f,
             lastPriceChange = -4.7f,
-            turnover = "1.99 млрд"
+            turnover = 2_000_000_000
         ),
 
         //CONSUMER_SECTOR
@@ -149,7 +149,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.CONSUMER_SECTOR,
             lastPrice = 5177.46f,
             lastPriceChange = -0.8f,
-            turnover = "2.26 млрд"
+            turnover = 2_500_000_000
         ),
 
         ExchangeInstrument(
@@ -158,7 +158,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.CONSUMER_SECTOR,
             lastPrice = 2750f,
             lastPriceChange = 1.16f,
-            turnover = "730 млн"
+            turnover = 790_000_000
         ),
         //ENERGY
         ExchangeInstrument(
@@ -167,7 +167,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.ENERGY,
             lastPrice = 5378.46f,
             lastPriceChange = -0.54f,
-            turnover = "771 млн"
+            turnover = 770_000_000
         ),
 
         ExchangeInstrument(
@@ -176,7 +176,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.ENERGY,
             lastPrice = 2750f,
             lastPriceChange = 4.4f,
-            turnover = "13.3 млн"
+            turnover = 13_000_000
         ),
 
         //Transport
@@ -186,7 +186,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.TRANSPORT,
             lastPrice = 73.76f,
             lastPriceChange = 1.3f,
-            turnover = "1.75 млрд"
+            turnover = 1_790_000_000
         ),
 
         ExchangeInstrument(
@@ -195,7 +195,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.ENERGY,
             lastPrice = 91.42f,
             lastPriceChange = -0.64f,
-            turnover = "79.3 млн"
+            turnover = 790_000_000
         ),
         //chemistry
         ExchangeInstrument(
@@ -204,7 +204,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.CHEMISTRY,
             lastPrice = 3415f,
             lastPriceChange = -1.3f,
-            turnover = "545 млн"
+            turnover = 545_000_000
         ),
 
         ExchangeInstrument(
@@ -213,7 +213,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.CHEMISTRY,
             lastPrice = 5982f,
             lastPriceChange = 0f,
-            turnover = "22.3 млн"
+            turnover = 22_000_000
         ),
 
         // Other
@@ -224,7 +224,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.OTHER,
             lastPrice = 773f,
             lastPriceChange = 0f,
-            turnover = "148 млн"
+            turnover = 148_000_000
         ),
 
         ExchangeInstrument(
@@ -233,7 +233,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.OTHER,
             lastPrice = 18f,
             lastPriceChange = -6f,
-            turnover = "51 млн"
+            turnover = 51_000_000
         ),
         // APK
 
@@ -243,7 +243,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.AGRO,
             lastPrice = 892.1f,
             lastPriceChange = 0.09f,
-            turnover = "135 млн"
+            turnover = 135_000_000
         ),
 
         ExchangeInstrument(
@@ -252,7 +252,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.AGRO,
             lastPrice = 9.044f,
             lastPriceChange = -0.33f,
-            turnover = "11,5 млн"
+            turnover = 11_000_000
         ),
 
         //machine
@@ -262,7 +262,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.MECHANICAL_ENGINEERING,
             lastPrice = 144.3f,
             lastPriceChange = 0f,
-            turnover = "9 млн"
+            turnover = 9_000_000
         ),
 
         ExchangeInstrument(
@@ -271,7 +271,7 @@ class MoscowExchangeRepository : ExchangeRepository {
             group = ExInstrument.Direction.MECHANICAL_ENGINEERING,
             lastPrice = 481.5f,
             lastPriceChange = 2.01f,
-            turnover = "7,8 млн"
+            turnover = 7_000_000
         ),
 
 

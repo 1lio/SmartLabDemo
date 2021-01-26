@@ -39,7 +39,7 @@ class TableAdapter : BaseRecyclerAdapter<ExchangeInstrument, TableAdapter.TableV
             texTitle.text = item.name
             textPrice.text = item.lastPrice.toString()
             texPercent.text = item.lastPriceChange.toString()
-            textTurnover.text = item.turnover
+            textTurnover.text = item.turnover.toString()
 
             imageIndicator.setImageResource(R.drawable.ic_arrow)
             imageIndicator.rotation = if (item.lastPriceChange <= 0) 0.0f else 180.0f
