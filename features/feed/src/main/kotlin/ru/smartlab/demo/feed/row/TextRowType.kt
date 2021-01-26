@@ -14,7 +14,11 @@ class TextRowType(private val item: Feed) : RowType {
         holder.avatarImg.background
         holder.likeView.background
 
-        holder.contentTextView.text = item.title
+        holder.contentTextView.text = ("""
+            ${item.title}
+            
+            ${item.content}
+        """.trimIndent())
         holder.authorTextView.text = item.author
         holder.dateTextView.text = item.date
 

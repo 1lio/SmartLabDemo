@@ -46,6 +46,8 @@ class ParseService {
         for (e in elements) {
 
             val title = e.select(".title ").text()
+
+            val content = e.select(".content").text()
             // val link = e.select(".title ").attr("abs:href")
 
             val date = e.select(".date ").text()
@@ -69,7 +71,7 @@ class ParseService {
 
             val feed = Feed(
                 title = title,
-                content = "",
+                content = content,
                 author = author,
                 date = date,
                 countViews = views,
