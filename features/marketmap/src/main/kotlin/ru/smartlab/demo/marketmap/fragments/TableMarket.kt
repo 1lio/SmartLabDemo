@@ -15,20 +15,27 @@ import ru.smartlab.demo.marketmap.fragments.adapter.TableAdapter
 // Demo Variant - not optimized (BAD VARIANT)
 class TableMarket : Fragment() {
 
-    private val gazAndOilList = MoscowExchangeRepository().getStockList { it.group == Direction.GAZ_AND_OIL }
-
-    private val financeList =  MoscowExchangeRepository().getStockList  { it.group == Direction.FINANCE }
-    private val metallurgyList =  MoscowExchangeRepository().getStockList  { it.group == Direction.METALLURGY }
-    private val itList =  MoscowExchangeRepository().getStockList  { it.group == Direction.IT }
-    private val consumerSectorList =  MoscowExchangeRepository().getStockList  { it.group == Direction.CONSUMER_SECTOR }
-    private val energyList =  MoscowExchangeRepository().getStockList  { it.group == Direction.ENERGY }
-    private val transportList =  MoscowExchangeRepository().getStockList  { it.group == Direction.TRANSPORT }
-    private val chemistryList =  MoscowExchangeRepository().getStockList  { it.group == Direction.CHEMISTRY }
-    private val agroList =  MoscowExchangeRepository().getStockList  { it.group == Direction.AGRO }
-    private val mechanicalEngineeringList =  MoscowExchangeRepository().getStockList  { it.group == Direction.MECHANICAL_ENGINEERING }
-    private val constructionList =  MoscowExchangeRepository().getStockList  { it.group == Direction.CONSTRUCTION }
-
-    private val otherList =  MoscowExchangeRepository().getStockList  { it.group == Direction.OTHER }
+    private val gazAndOilList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.GAZ_AND_OIL }
+    private val financeList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.FINANCE }
+    private val metallurgyList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.METALLURGY }
+    private val itList = MoscowExchangeRepository().getStockList { it.group == Direction.IT }
+    private val consumerSectorList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.CONSUMER_SECTOR }
+    private val energyList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.ENERGY }
+    private val transportList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.TRANSPORT }
+    private val chemistryList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.CHEMISTRY }
+    private val agroList = MoscowExchangeRepository().getStockList { it.group == Direction.AGRO }
+    private val mechanicalEngineeringList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.MECHANICAL_ENGINEERING }
+    private val constructionList =
+        MoscowExchangeRepository().getStockList { it.group == Direction.CONSTRUCTION }
+    private val otherList = MoscowExchangeRepository().getStockList { it.group == Direction.OTHER }
 
     private lateinit var gazAndOilRecycler: RecyclerView
     private lateinit var financeRecycler: RecyclerView

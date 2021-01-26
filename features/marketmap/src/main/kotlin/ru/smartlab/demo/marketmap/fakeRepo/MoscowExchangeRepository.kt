@@ -6,7 +6,7 @@ import ru.smartlab.demo.marketmap.repository.ExchangeRepository
 
 class MoscowExchangeRepository : ExchangeRepository {
 
-    private fun getListStocks() = listOf(
+     fun getListStocks() = listOf(
 
         ExchangeInstrument(
             name = "PIK",
