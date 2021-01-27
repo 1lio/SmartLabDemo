@@ -1,6 +1,7 @@
 package ru.smartlab.demo.core.utils
 
 import android.content.Context
+import java.util.*
 
 object Utils {
 
@@ -64,7 +65,7 @@ object Utils {
             append(
                 when {
                     it == ' ' -> divider
-                    it.isUpperCase() -> transitMap[it.toLowerCase()]?.capitalize()
+                    it.isUpperCase() -> transitMap[it.toLowerCase()]?.capitalize(Locale.ROOT)
                         ?: it.toString()
                     else -> transitMap[it] ?: it.toString()
                 }
@@ -74,12 +75,9 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): String? = when {
         firstName.isNullOrBlank() && lastName.isNullOrBlank() -> null
-        !firstName.isNullOrBlank() && lastName.isNullOrBlank() -> firstName[0].toUpperCase()
-            .toString()
-        firstName.isNullOrBlank() && !lastName.isNullOrBlank() -> lastName[0].toUpperCase()
-            .toString()
-        !firstName.isNullOrBlank() && !lastName.isNullOrBlank() -> firstName[0].toUpperCase() + lastName[0].toUpperCase()
-            .toString()
+        !firstName.isNullOrBlank() && lastName.isNullOrBlank() -> firstName[0].toUpperCase().toString()
+        firstName.isNullOrBlank() && !lastName.isNullOrBlank() -> lastName[0].toUpperCase().toString()
+        !firstName.isNullOrBlank() && !lastName.isNullOrBlank() -> firstName[0].toUpperCase() + lastName[0].toUpperCase().toString()
         else -> throw IllegalStateException("Incorrect state in 'when' expression")
     }
 
