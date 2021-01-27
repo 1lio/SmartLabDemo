@@ -13,14 +13,10 @@ import ru.smartlab.demo.marketmap.fakeRepo.MoscowExchangeRepository
 
 class MapMarket : Fragment() {
 
-
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View {
         super.onCreateView(inflater, group, state)
-
         getStockWidth()
-
         return GridLayout(context)
-
     }
 
     private val list = MoscowExchangeRepository().getListStocks()
@@ -32,46 +28,49 @@ class MapMarket : Fragment() {
         Log.i(TAG, "All: $allTurnover")
 
         // Расчитываем сколько каждая отрасль занимает %
-        val gazAndOilWidth = list.percent { it.group == Direction.GAZ_AND_OIL }
-        val financeWidth = list.percent { it.group == Direction.FINANCE }
-        val metallurgyWidth = list.percent { it.group == Direction.METALLURGY }
-        val itWidth = list.percent { it.group == Direction.IT }
-        val consumerSectorWidth = list.percent { it.group == Direction.CONSUMER_SECTOR }
-        val energyWidth = list.percent { it.group == Direction.ENERGY }
-        val transportWidth = list.percent { it.group == Direction.TRANSPORT }
-        val chemistryWidth = list.percent { it.group == Direction.CHEMISTRY }
-        val agroWidth = list.percent { it.group == Direction.AGRO }
-        val mechanicalEngineeringWidth =
-            list.percent { it.group == Direction.MECHANICAL_ENGINEERING }
-        val constructionWidth = list.percent { it.group == Direction.CONSTRUCTION }
-        val otherWidth = list.percent { it.group == Direction.OTHER }
+        val gazAndOilWidth = list.percent(Direction.GAZ_AND_OIL)
+        val financeWidth = list.percent(Direction.FINANCE)
+        val metallurgyWidth = list.percent(Direction.METALLURGY)
+        val itWidth = list.percent(Direction.IT)
+        val consumerSectorWidth = list.percent(Direction.CONSUMER_SECTOR)
+        val energyWidth = list.percent(Direction.ENERGY)
+        val transportWidth = list.percent(Direction.TRANSPORT)
+        val chemistryWidth = list.percent(Direction.CHEMISTRY)
+        val agroWidth = list.percent(Direction.AGRO)
+        val mechanicalEngineeringWidth = list.percent(Direction.MECHANICAL_ENGINEERING)
+        val constructionWidth = list.percent(Direction.CONSTRUCTION)
+        val otherWidth = list.percent(Direction.OTHER)
 
-        val listG = listOf(
-            gazAndOilWidth,
-            financeWidth,
-            metallurgyWidth,
-            itWidth,
-            consumerSectorWidth,
-            energyWidth,
-            transportWidth,
-            chemistryWidth,
-            agroWidth,
-            mechanicalEngineeringWidth,
-            constructionWidth,
-            otherWidth
-        )
+       val listGroups = listOf(gazAndOilWidth, financeWidth, metallurgyWidth, itWidth,
+            consumerSectorWidth, energyWidth, transportWidth, chemistryWidth, agroWidth,
+            mechanicalEngineeringWidth, constructionWidth, otherWidth)
 
 
-        listG.forEach {
-            Log.i(TAG, "getStockWidth: $it")
+       // val listGroups = mutableListOf<String>()
+      //  Log.i(TAG, listGroups.size.toString())
+
+     /*   val directionInstance = Direction
+
+        Direction::class.java.fields.forEach {
+            val field = it.get(directionInstance) as String
+
+            listGroups.add(list.percent(field).toString())
+
         }
-        // Расчитываем сколько конкретно акция занимает процентов
 
+        Log.i(TAG, listGroups.size.toString())*/
+
+        listGroups.forEach {
+            Log.i(TAG, "${Math.ceil(it.toDouble())} %")
+        }
+
+        Log.i(TAG, "Sum ${Math.ceil(listGroups.sum().toDouble())}")
+        // Расчитываем сколько конкретно акция занимает процентов
 
     }
 
-    private inline fun List<ExchangeInstrument>.percent(filter: (inst: ExchangeInstrument) -> Boolean): Float {
-        return 100.0f * this.filter { filter(it) }.sumOf { it.turnover } / allTurnover
+    private fun List<ExchangeInstrument>.percent(filter: String): Float {
+        return 100.0f * this.filter { it.group == filter }.sumOf { it.turnover } / allTurnover
     }
 
 
