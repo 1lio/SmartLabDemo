@@ -15,6 +15,23 @@ import ru.smartlab.demo.marketmap.fragments.adapter.TableAdapter
 // Demo Variant - not optimized (BAD VARIANT)
 class TableMarket : Fragment() {
 
+
+    private var listDirection = listOf<Any>(
+        Direction.GAZ_AND_OIL,
+        Direction.FINANCE,
+        Direction.METALLURGY,
+        Direction.IT, Direction.CONSUMER_SECTOR,
+        Direction.ENERGY,
+        Direction.TRANSPORT,
+        Direction.CHEMISTRY,
+        Direction.AGRO,
+        Direction.MECHANICAL_ENGINEERING,
+        Direction.CONSTRUCTION,
+        Direction.HEALTHCARE,
+        Direction.OTHER
+    )
+
+
     private val gazAndOilList =
         MoscowExchangeRepository().getStockList { it.group == Direction.GAZ_AND_OIL }
     private val financeList =
@@ -37,75 +54,44 @@ class TableMarket : Fragment() {
         MoscowExchangeRepository().getStockList { it.group == Direction.CONSTRUCTION }
     private val otherList = MoscowExchangeRepository().getStockList { it.group == Direction.OTHER }
 
-    private lateinit var gazAndOilRecycler: RecyclerView
-    private lateinit var financeRecycler: RecyclerView
-    private lateinit var metallurgyRecycler: RecyclerView
-    private lateinit var itRecycler: RecyclerView
-    private lateinit var consumerSectorRecycler: RecyclerView
-    private lateinit var energyRecycler: RecyclerView
-    private lateinit var transportRecycler: RecyclerView
-    private lateinit var chemistryRecycler: RecyclerView
-    private lateinit var agroRecycler: RecyclerView
-    private lateinit var mechanicalEngineeringRecycler: RecyclerView
-    private lateinit var constructionRecycler: RecyclerView
-    private lateinit var otherRecycler: RecyclerView
+    fun setListAdapter(): List<Any> {
+        return listOf<Any>(
+            Direction.GAZ_AND_OIL,
+            gazAndOilList[0],
+            gazAndOilList[1],
+            gazAndOilList[3],
+            gazAndOilList[4],
+            gazAndOilList[5],
+            Direction.FINANCE,
+            financeList[0],
+            financeList[1],
+            Direction.METALLURGY,
+            metallurgyList[0],
+            metallurgyList[1]
+        )
+    }
 
+    private lateinit var tableRecyclerView: RecyclerView
+    private lateinit var adapter: TableAdapter
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
         super.onCreateView(inflater, group, state)
 
         val v = inflater.inflate(R.layout.table_fragment, group, false)
-
-        gazAndOilRecycler = v.findViewById(R.id.recyclerGaz)
-        financeRecycler = v.findViewById(R.id.recyclerFinance)
-        metallurgyRecycler = v.findViewById(R.id.recyclerMetallurgy)
-        itRecycler = v.findViewById(R.id.recyclerIT)
-        consumerSectorRecycler = v.findViewById(R.id.recyclerConsumer)
-        energyRecycler = v.findViewById(R.id.recyclerEnergy)
-        transportRecycler = v.findViewById(R.id.recyclerTransport)
-        chemistryRecycler = v.findViewById(R.id.recyclerChemistry)
-        agroRecycler = v.findViewById(R.id.recyclerAgro)
-        mechanicalEngineeringRecycler = v.findViewById(R.id.recyclerMechanical)
-        constructionRecycler = v.findViewById(R.id.recyclerConstruction)
-        otherRecycler = v.findViewById(R.id.recyclerOther)
-
-        val groupRecycler = listOf(
-            gazAndOilRecycler,
-            financeRecycler,
-            metallurgyRecycler,
-            itRecycler,
-            consumerSectorRecycler,
-            energyRecycler,
-            transportRecycler,
-            chemistryRecycler,
-            agroRecycler,
-            mechanicalEngineeringRecycler,
-            constructionRecycler,
-            otherRecycler
-        )
-
-        val groupList = listOf(
-            gazAndOilList,
-            financeList,
-            metallurgyList,
-            itList,
-            consumerSectorList,
-            energyList,
-            transportList,
-            chemistryList,
-            agroList,
-            mechanicalEngineeringList,
-            constructionList,
-            otherList
-        )
-
-        groupRecycler.forEachIndexed { index, view ->
-            val adapter = TableAdapter()
-            view.layoutManager = GridLayoutManager(context, 3)
-            view.adapter = adapter
-            adapter.addAllAndNotify(groupList[index])
+        tableRecyclerView = v.findViewById(R.id.tableRecyclerView)
+        adapter = TableAdapter(setListAdapter())
+        val glm = GridLayoutManager(context, 4).apply {
+            spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return when (adapter.getItemViewType(position)) {
+                        0 -> 1
+                        else -> 4
+                    }
+                }
+            }
         }
 
+        tableRecyclerView.layoutManager = glm
+        tableRecyclerView.adapter = TableAdapter(setListAdapter())
         return v
     }
-
 }
