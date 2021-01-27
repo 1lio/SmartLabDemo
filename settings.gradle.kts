@@ -6,6 +6,7 @@ val appID = "ru.smartlab.demo"
 include(":app")
 
 addModule("core", isCore = true)
+addModule("repo", isCore = true)
 
 // features
 addModule("account")
