@@ -71,7 +71,7 @@ class MapMarket : Fragment() {
     }
 
     private inline fun List<ExchangeInstrument>.percent(filter: (inst: ExchangeInstrument) -> Boolean): Float {
-        return 100.0f * this.filter { filter(it) }.sumOf { it.turnover }
+        return 100.0f * this.filter { filter(it) }.sumOf { it.turnover } / allTurnover
     }
 
 
