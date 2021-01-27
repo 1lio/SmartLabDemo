@@ -13,9 +13,9 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ru.smartlab.demo.feed.R
 import ru.smartlab.demo.feed.adapter.FeedAdapter
-import ru.smartlab.demo.feed.datastore.api.ParseService
 import ru.smartlab.demo.feed.row.RowType
 import ru.smartlab.demo.feed.row.TextRowType
+import ru.smartlab.demo.repo.interactor.SmartLabParserImpl
 
 // FIX RECURSING ID'S IN ROWS
 
@@ -37,10 +37,13 @@ class FeedFragment : Fragment() {
         recyclerView.adapter = adapter
 
         GlobalScope.launch(Dispatchers.Main) {
-            ParseService().subscribeBNews().collect {
-                items.add(TextRowType(it))
-                adapter.notifyItemChanged(items.size)
+            SmartLabParserImpl().getFeed().collect {
 
+                it.forEach { topic ->
+                    items.add(TextRowType(topic))
+                }
+
+                adapter.notifyItemChanged(items.size)
             }
         }
 

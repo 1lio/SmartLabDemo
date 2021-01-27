@@ -1,6 +1,7 @@
 package ru.smartlab.demo.repo.parser
 
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import org.jsoup.Jsoup
@@ -8,7 +9,6 @@ import org.jsoup.select.Elements
 
 object HtmlParser {
 
-    private val scope = CoroutineScope(Job() + Dispatchers.IO)
     private var isSubscribe = false
 
     private val jsoupDocument =
@@ -35,7 +35,7 @@ object HtmlParser {
 
         isSubscribe = true
 
-        scope.launch {
+        GlobalScope.launch {
 
             while (isSubscribe) {
 
@@ -49,10 +49,10 @@ object HtmlParser {
                 }
             }
         }
+
     }.flowOn(Dispatchers.IO)
 
     fun unsubscribe() {
-        scope.cancel()
         isSubscribe = false
     }
 }
