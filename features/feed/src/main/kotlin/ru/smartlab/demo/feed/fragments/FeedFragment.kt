@@ -1,4 +1,4 @@
-package ru.smartlab.demo.feed
+package ru.smartlab.demo.feed.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import ru.smartlab.demo.feed.R
 import ru.smartlab.demo.feed.adapter.FeedAdapter
 import ru.smartlab.demo.feed.datastore.api.ParseService
 import ru.smartlab.demo.feed.row.RowType
