@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.smartlab.demo.core.enum.ExInstrument.Direction
+import ru.smartlab.demo.core.enums.ExInstrument.Direction
 import ru.smartlab.demo.marketmap.R
 import ru.smartlab.demo.marketmap.fakeRepo.MoscowExchangeRepository
 import ru.smartlab.demo.marketmap.fragments.adapter.TableAdapter

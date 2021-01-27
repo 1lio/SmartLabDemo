@@ -1,6 +1,6 @@
 package ru.smartlab.demo.core.entity
 
-import ru.smartlab.demo.core.enum.ExInstrument
+import ru.smartlab.demo.core.enums.ExInstrument
 
 data class ExchangeInstrument(
     val id: Long = -1,

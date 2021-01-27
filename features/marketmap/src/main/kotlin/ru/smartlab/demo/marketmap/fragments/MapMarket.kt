@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.GridLayout
 import androidx.fragment.app.Fragment
 import ru.smartlab.demo.core.entity.ExchangeInstrument
-import ru.smartlab.demo.core.enum.ExInstrument.Direction
+import ru.smartlab.demo.core.enums.ExInstrument.Direction
 import ru.smartlab.demo.marketmap.fakeRepo.MoscowExchangeRepository
 
 class MapMarket : Fragment() {

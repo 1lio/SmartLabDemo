@@ -1,4 +1,4 @@
-package ru.smartlab.demo.core.enum
+package ru.smartlab.demo.core.enums
 
 object ExInstrument {
 

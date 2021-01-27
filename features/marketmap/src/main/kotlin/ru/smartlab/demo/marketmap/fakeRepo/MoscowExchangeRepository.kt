@@ -1,7 +1,7 @@
 package ru.smartlab.demo.marketmap.fakeRepo
 
 import ru.smartlab.demo.core.entity.ExchangeInstrument
-import ru.smartlab.demo.core.enum.ExInstrument
+import ru.smartlab.demo.core.enums.ExInstrument
 import ru.smartlab.demo.marketmap.repository.ExchangeRepository
 
 class MoscowExchangeRepository : ExchangeRepository {
