@@ -2,8 +2,7 @@ package ru.smartlab.demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.smartlab.demo.feed.fragments.FeedFragment
-import ru.smartlab.demo.marketmap.fragments.MapMarket
+import ru.smartlab.demo.feed.fragments.FeedMainFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,7 +12,8 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.nav_host_fragment, FeedFragment())
+            .addToBackStack(null)
+            .replace(R.id.nav_host_fragment, FeedMainFragment())
             .commit()
     }
 }
