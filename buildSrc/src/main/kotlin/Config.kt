@@ -55,12 +55,13 @@ object Config {
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
 
             // NavigationLibs
-            
+
             const val navigationUI = "androidx.navigation:navigation-fragment-ktx:$navVersion"
             const val navigationFragment = "androidx.navigation:navigation-ui-ktx:$navVersion"
 
             // Feature module Support
-            const val navigationDynamic = "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
+            const val navigationDynamic =
+                "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
 
         }
 
@@ -98,11 +99,13 @@ object Config {
 
         object Network {
             private const val retrofitVer = "2.9.0"
-            const val retrofit2 = "com.squareup.retrofit2:retrofit:$retrofitVer"
-            const val converterGson = "com.squareup.retrofit2:converter-gson:$retrofitVer"
 
-            const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.8.1"
+            const val retrofit2 = "com.squareup.retrofit2:retrofit:$retrofitVer"
+            const val gson = "com.google.code.gson:gson:2.8.6"
+            const val gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVer"
+
             const val okhttp = "com.squareup.okhttp3:okhttp:4.5.0"
+            const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.8.1"
             const val websocket = "org.java-websocket:Java-WebSocket:1.5.1"
         }
 
