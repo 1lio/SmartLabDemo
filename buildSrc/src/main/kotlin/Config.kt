@@ -74,11 +74,12 @@ object Config {
 
             // Java HTML Parser
             const val jsoup = "org.jsoup:jsoup:1.13.1"
+
+            // SharedPref
+            const val hawk = "com.orhanobut:hawk:2.0.1"
         }
 
-
         object Compose {
-
             // Navigation
             const val navigationCompose = "androidx.navigation:navigation-compose:1.0.0-alpha05"
         }
@@ -107,6 +108,9 @@ object Config {
             const val okhttp = "com.squareup.okhttp3:okhttp:4.5.0"
             const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.8.1"
             const val websocket = "org.java-websocket:Java-WebSocket:1.5.1"
+
+            const val retrofitCoroutinesAdapter =
+                "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
         }
 
         object Rx {
@@ -114,9 +118,6 @@ object Config {
             const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.19"
         }
 
-        object Misc {
-            const val hawk = "com.orhanobut:hawk:2.0.1"
-        }
 
         object Test {
             const val testRunner = "androidx.test:runner:1.3.0"
