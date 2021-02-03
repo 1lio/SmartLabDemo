@@ -19,7 +19,7 @@ import ru.smartlab.demo.network.api.SmartLabApi.FeedTop
 import ru.smartlab.demo.network.impl.SmartLabParserImpl
 
 // Данный фрагмент отражет ленту новостей
-class FeedFragment : Fragment() {
+class FeedFragment(private val feedType: Int = 0) : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
         super.onCreateView(inflater, group, state)
@@ -59,12 +59,12 @@ class FeedFragment : Fragment() {
         return v
     }
 
-    companion object {
+/*    companion object {
 
         private var feedType = 0 // 0-главная 1-все 2день 3-7 дней 4 -месяц 5 завсе время
 
         fun setType(typeFeed: Int) {
             feedType = typeFeed
         }
-    }
+    }*/
 }
