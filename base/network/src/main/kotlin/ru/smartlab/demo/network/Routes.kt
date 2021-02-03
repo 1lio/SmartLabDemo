@@ -83,6 +83,6 @@ package ru.smartlab.demo.network
 '/blacklist/'
 '/abuse/'
 '/mobile/'
-'read'] = '/read/'
-'rest'] = '/rest/'
+'read'  <-- Application
+'rest'  <-- REST
 */
