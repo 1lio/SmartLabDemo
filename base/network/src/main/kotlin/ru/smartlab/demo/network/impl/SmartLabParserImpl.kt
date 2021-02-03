@@ -108,6 +108,14 @@ class SmartLabParserImpl : SmartLabApi {
 
     }
 
+    override fun getFeedAll(): Flow<List<Topic>> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getFeedTop(top: Int): Flow<List<Topic>> {
+        TODO("Not yet implemented")
+    }
+
 
     private fun String.toIntNotNull(): Int = this.let { if (it.isEmpty()) 0 else it.toInt() }
 }
