@@ -3,4 +3,9 @@
     <string name="main">Главная</string>
     <string name="all">Все подряд</string>
     <string name="top">Лучшие</string>
+
+    <string name="top_1">За день</string>
+    <string name="top_7">за 7 дней</string>
+    <string name="top_30">Месяц</string>
+    <string name="top_all">Все время</string>
 </resources>
