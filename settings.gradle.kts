@@ -6,6 +6,7 @@ include(":app")
 
 addModule("core", isCore = true)
 addModule("repo", isCore = true)
+//addModule("network", isCore = true)
 
 // features
 addModule("auth")
@@ -19,6 +20,8 @@ addModule("stocklenta")
 //tmp
 addModule("navigation", isCore = true)
 
+val appID = "ru.smartlab.demo"
+
 // Add gradle module
 fun addModule(moduleName: String, isCore: Boolean = false) {
 
@@ -28,7 +31,7 @@ fun addModule(moduleName: String, isCore: Boolean = false) {
     val modulePath = "$moduleType/$moduleName"
     val moduleDir = File(rootDir, modulePath)
 
-    if (!moduleDir.exists()) moduleDir.addTemplate(moduleName,  moduleType)
+    if (!moduleDir.exists()) moduleDir.addTemplate(moduleName, moduleType)
 
     // Include module
     include(moduleName)
@@ -37,13 +40,6 @@ fun addModule(moduleName: String, isCore: Boolean = false) {
 
 // Add module template (dirs, build.gradle.kts, manifest)
 fun File.addTemplate(moduleName: String, moduleType: String) {
-
-    fun String.pushToFile(path:String) {
-        java.io.PrintWriter("$moduleType/$moduleName/$path").runCatching {
-            this.println(this)
-            this.close()
-        }.onFailure { it.printStackTrace() }
-    }
 
     // make Module Directory
     this.mkdirs()
@@ -63,16 +59,23 @@ fun File.addTemplate(moduleName: String, moduleType: String) {
         """.trimIndent()
 
     // push and save gradle file
-    gradleConfig.pushToFile("build.gradle.kts")
+    gradleConfig.pushToFile("$moduleType/$moduleName/build.gradle.kts")
 
-    val packageID = "ru/smartlab/demo"
     // make Package Directory
+    val packageID = appID.replace('.', '/')
     File(rootDir, "$moduleType/$moduleName/src/main/kotlin/$packageID/$moduleName").mkdirs()
 
-    // add Manifest
-    val manifest = """<?xml version="1.0" encoding="utf-8"?>
-            |<manifest package="ru.smartlab.demo.$moduleName" />""".trimMargin()
-
     // push and save Manifest
-    manifest.pushToFile("src/main/AndroidManifest.xml")
+    val manifest = """
+        <?xml version="1.0" encoding="utf-8"?>
+        <manifest package="$appID.$moduleName" />""".trimIndent()
+
+    manifest.pushToFile("$moduleType/$moduleName/src/main/AndroidManifest.xml")
+}
+
+fun String.pushToFile(path: String) {
+    java.io.PrintWriter(path).runCatching {
+        this.println(this@pushToFile)
+        this.close()
+    }.onFailure { it.printStackTrace() }
 }
