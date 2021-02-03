@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import org.jsoup.Jsoup
 import org.jsoup.select.Elements
+import ru.smartlab.demo.core.utils.Constants.BASE_URL
 
 object HtmlParser {
 
@@ -12,7 +13,7 @@ object HtmlParser {
 
     private val jsoupDocument =
         Jsoup
-            .connect("https://smart-lab.ru/")
+            .connect(BASE_URL)
             .get()
 
 
