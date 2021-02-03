@@ -1,6 +1,5 @@
 rootProject.buildFileName = "build.gradle.kts"
 rootProject.name = "SmartLabDemo"
-val appID = "ru.smartlab.demo"
 
 // base
 include(":app")
@@ -9,6 +8,7 @@ addModule("core", isCore = true)
 addModule("repo", isCore = true)
 
 // features
+addModule("auth")
 addModule("account")
 addModule("chat")
 addModule("feed")
@@ -19,6 +19,7 @@ addModule("stocklenta")
 //tmp
 addModule("navigation", isCore = true)
 
+// Add gradle module
 fun addModule(moduleName: String, isCore: Boolean = false) {
 
     val moduleType = if (isCore) "base" else "features"
@@ -27,13 +28,28 @@ fun addModule(moduleName: String, isCore: Boolean = false) {
     val modulePath = "$moduleType/$moduleName"
     val moduleDir = File(rootDir, modulePath)
 
-    if (!moduleDir.exists()) {
+    if (!moduleDir.exists()) moduleDir.addTemplate(moduleName,  moduleType)
 
-        // make Module Directory
-        moduleDir.mkdirs()
+    // Include module
+    include(moduleName)
+    project(":$moduleName").projectDir = File(rootDir, modulePath)
+}
 
-        // create build.gradle.kts file
-        val gradleConfig = """
+// Add module template (dirs, build.gradle.kts, manifest)
+fun File.addTemplate(moduleName: String, moduleType: String) {
+
+    fun String.pushToFile(path:String) {
+        java.io.PrintWriter("$moduleType/$moduleName/$path").runCatching {
+            this.println(this)
+            this.close()
+        }.onFailure { it.printStackTrace() }
+    }
+
+    // make Module Directory
+    this.mkdirs()
+
+    // create build.gradle.kts file
+    val gradleConfig = """
             dependencies {
                 // libs
                 implementation(Config.Libs.Androidx.appCompat)
@@ -42,35 +58,21 @@ fun addModule(moduleName: String, isCore: Boolean = false) {
                 
                 // modules
                 api(project(":core"))
-                api(project(":network"))
+                // api(project(":network"))
             }
         """.trimIndent()
 
-        java.io.PrintWriter("$moduleType/$moduleName/build.gradle.kts").runCatching {
-            this.println(gradleConfig)
-            this.close()
-        }.onFailure {
-            it.printStackTrace()
-        }
+    // push and save gradle file
+    gradleConfig.pushToFile("build.gradle.kts")
 
-        // make Package Directory
-        val packageID = appID.replace('.', '/')
-        File(rootDir, "$moduleType/$moduleName/src/main/kotlin/$packageID/$moduleName").mkdirs()
+    val packageID = "ru/smartlab/demo"
+    // make Package Directory
+    File(rootDir, "$moduleType/$moduleName/src/main/kotlin/$packageID/$moduleName").mkdirs()
 
-        // add Manifest
-        val manifest = """<?xml version="1.0" encoding="utf-8"?>
+    // add Manifest
+    val manifest = """<?xml version="1.0" encoding="utf-8"?>
             |<manifest package="ru.smartlab.demo.$moduleName" />""".trimMargin()
 
-        java.io.PrintWriter("$moduleType/$moduleName/src/main/AndroidManifest.xml").runCatching {
-            this.println(manifest)
-            this.close()
-        }.onFailure {
-            it.printStackTrace()
-        }
-
-    }
-
-    //include module
-    include(moduleName)
-    project(":$moduleName").projectDir = File(rootDir, modulePath)
+    // push and save Manifest
+    manifest.pushToFile("src/main/AndroidManifest.xml")
 }
