@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main">Главная</string>
+    <string name="all">Все подряд</string>
+    <string name="top">Лучшие</string>
+</resources>
