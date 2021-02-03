@@ -14,7 +14,7 @@ data class TopicJSON(
 
     fun convertToTopic(): Topic {
         return Topic(
-            title = title,
+            title = title.trim(),
             content = "",
             author = User(authorName),
             date = date,
