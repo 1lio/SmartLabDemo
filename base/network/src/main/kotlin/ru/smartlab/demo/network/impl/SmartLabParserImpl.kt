@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.flowOn
 import ru.smartlab.demo.core.entity.Topic
 import ru.smartlab.demo.core.entity.User
 import ru.smartlab.demo.network.api.SmartLabApi
+import ru.smartlab.demo.network.service.HtmlParser
 
 class SmartLabParserImpl : SmartLabApi {
 
@@ -14,7 +15,7 @@ class SmartLabParserImpl : SmartLabApi {
 
         val topics = mutableListOf<Topic>()
 
-        val l = ru.smartlab.demo.network.parser.HtmlParser
+        val l = HtmlParser
             .single(
                 root = ".topic",
                 keys = arrayOf(
