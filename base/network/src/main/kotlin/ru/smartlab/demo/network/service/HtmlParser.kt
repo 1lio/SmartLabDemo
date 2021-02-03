@@ -1,4 +1,4 @@
-package ru.smartlab.demo.network.parser
+package ru.smartlab.demo.network.service
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.flow
