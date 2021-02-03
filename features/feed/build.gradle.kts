@@ -14,5 +14,6 @@ dependencies {
 
     // modules
     api(project(":core"))
+    api(project(":network"))
     api(project(":repo"))
 }

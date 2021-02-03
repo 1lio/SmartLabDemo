@@ -15,7 +15,7 @@ import ru.smartlab.demo.feed.R
 import ru.smartlab.demo.feed.adapter.FeedAdapter
 import ru.smartlab.demo.feed.row.RowType
 import ru.smartlab.demo.feed.row.TextRowType
-import ru.smartlab.demo.repo.interactor.SmartLabParserImpl
+import ru.smartlab.demo.network.impl.SmartLabParserImpl
 
 // FIX RECURSING ID'S IN ROWS
 

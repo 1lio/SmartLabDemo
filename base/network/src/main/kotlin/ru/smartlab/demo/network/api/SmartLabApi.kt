@@ -1,4 +1,4 @@
-package ru.smartlab.demo.repo.api
+package ru.smartlab.demo.network.api
 
 import kotlinx.coroutines.flow.Flow
 import ru.smartlab.demo.core.entity.Topic

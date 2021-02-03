@@ -1,7 +1,6 @@
-package ru.smartlab.demo.repo.parser
+package ru.smartlab.demo.network.parser
 
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import org.jsoup.Jsoup

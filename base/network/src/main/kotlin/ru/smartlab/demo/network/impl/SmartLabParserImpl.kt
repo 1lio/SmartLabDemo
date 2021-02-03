@@ -1,18 +1,12 @@
-package ru.smartlab.demo.repo.interactor
+package ru.smartlab.demo.network.impl
 
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.launch
-import org.jsoup.Jsoup
-import org.jsoup.select.Elements
 import ru.smartlab.demo.core.entity.Topic
 import ru.smartlab.demo.core.entity.User
-import ru.smartlab.demo.repo.api.SmartLabApi
-import ru.smartlab.demo.repo.parser.HtmlParser
+import ru.smartlab.demo.network.api.SmartLabApi
 
 class SmartLabParserImpl : SmartLabApi {
 
@@ -20,7 +14,7 @@ class SmartLabParserImpl : SmartLabApi {
 
         val topics = mutableListOf<Topic>()
 
-        val l = HtmlParser
+        val l = ru.smartlab.demo.network.parser.HtmlParser
             .single(
                 root = ".topic",
                 keys = arrayOf(
