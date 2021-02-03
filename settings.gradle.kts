@@ -6,7 +6,7 @@ include(":app")
 
 addModule("core", isCore = true)
 addModule("repo", isCore = true)
-//addModule("network", isCore = true)
+addModule("network", isCore = true)
 
 // features
 addModule("auth")
