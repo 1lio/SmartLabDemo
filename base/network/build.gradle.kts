@@ -8,7 +8,6 @@ dependencies {
 
     // Network
     implementation(Config.Libs.Network.retrofit2)
-    implementation(Config.Libs.Network.retrofitCoroutinesAdapter)
     implementation(Config.Libs.Network.gson)
     implementation(Config.Libs.Network.gsonConverter)
     implementation(Config.Libs.Network.okhttp)
