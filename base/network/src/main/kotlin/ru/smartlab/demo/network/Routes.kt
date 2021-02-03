@@ -1,5 +1,7 @@
 package ru.smartlab.demo.network
 
+// Основные url'ы smart-lab
+
 /*
 '/error/'
 '/registration/'
