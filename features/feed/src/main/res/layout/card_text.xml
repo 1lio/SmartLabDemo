@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_small"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
     android:elevation="@dimen/item_elevation"
     app:cardCornerRadius="@dimen/item_card_radius">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,9 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="11dp"
-            tools:text="2.8K"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="2.8K" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView2"
@@ -49,9 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="11dp"
-            tools:text="12K"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="12K" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/likeImg"
@@ -100,12 +102,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            tools:text="Тимофей Мартынов"
-            tools:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/avatarImg"
-            app:layout_constraintTop_toTopOf="@+id/avatarImg" />
+            app:layout_constraintTop_toTopOf="@+id/avatarImg"
+            tools:text="Тимофей Мартынов"
+            tools:textSize="18sp" />
 
         <TextView
             android:id="@+id/dateText"
@@ -114,11 +116,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            tools:text="18 января 2021, 21:17"
             app:layout_constraintBottom_toBottomOf="@+id/avatarImg"
             app:layout_constraintStart_toEndOf="@+id/avatarImg"
             app:layout_constraintTop_toBottomOf="@+id/authorText"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="18 января 2021, 21:17" />
 
         <TextView
             android:id="@+id/contentText"
@@ -127,6 +129,10 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/avatarImg"
+            app:layout_constraintTop_toBottomOf="@+id/avatarImg"
             tools:text="00:00​ Результаты опросов в телеграм канале
 \n03:00​ Новости жизни
 \n04:30​ Три книги, которые я не дочитал до конца
@@ -139,11 +145,7 @@
 
 \n❤️Задонать от души: www.donationalerts.com/r/timm...​
 \nⓂ️Мой телеграм: t.me/martynovtim​
-\n🔈Яндекс подкаст: music.yandex.ru/album/11697227"
-            app:layout_constraintBottom_toTopOf="@+id/divider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/avatarImg"
-            app:layout_constraintTop_toBottomOf="@+id/avatarImg" />
+\n🔈Яндекс подкаст: music.yandex.ru/album/11697227" />
 
         <View
             android:id="@+id/divider2"
