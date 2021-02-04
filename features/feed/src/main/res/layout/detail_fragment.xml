@@ -6,161 +6,201 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txtDetailTitle"
+        android:id="@+id/titleDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatarDetail"
-        tools:text="Gamestop. Наглядное пособие что такое биржа." />
+        app:layout_constraintTop_toBottomOf="@+id/avatarImg"
+        tools:text="Мания маржинальной торговли (перевод с elliottwave com)" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/avatarDetail"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDetail" />
+
+    <ru.smartlab.demo.feed.view.CircleImageView
+        android:id="@+id/avatarImg"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/countViews"
+        android:id="@+id/authorNameDetatil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="2.8K" />
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImg"
+        app:layout_constraintStart_toEndOf="@+id/avatarImg"
+        app:layout_constraintTop_toTopOf="@+id/avatarImg"
+        tools:text="RUH666" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/dateDetail"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/countViews"
-        app:srcCompat="@drawable/ic_eye" />
-
-    <TextView
-        android:id="@+id/countLikes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/authorNameDetatil"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="12K" />
+        app:layout_constraintStart_toEndOf="@+id/authorNameDetatil"
+        app:layout_constraintTop_toTopOf="@+id/authorNameDetatil"
+        tools:text="Сегодня в 12:03" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/likeImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/countLikes"
-        app:srcCompat="@drawable/ic_favorite_border" />
-
-    <TextView
-        android:id="@+id/countComments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/likeImg"
-        tools:text="4K" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/countComments"
-        app:srcCompat="@drawable/ic_comment" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="8dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/authorTextDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/avatarDetail"
-        app:layout_constraintTop_toTopOf="@+id/avatarDetail"
-        tools:text="Тимофей Мартынов"
-        tools:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/dateTextDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/avatarDetail"
-        app:layout_constraintStart_toEndOf="@+id/avatarDetail"
-        app:layout_constraintTop_toBottomOf="@+id/authorTextDetail"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="18 января 2021, 21:17" />
-
-    <TextView
-        android:id="@+id/contentTextDetail"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/avatarDetail"
-        app:layout_constraintTop_toBottomOf="@+id/txtDetailTitle"
-        app:layout_constraintVertical_bias="0.73"
-        tools:text="00:00​ Результаты опросов в телеграм канале
-\n03:00​ Новости жизни
-\n04:30​ Три книги, которые я не дочитал до конца
-\n09:45​ Десять правил жизни
-\n14:15​ Кому воспитывать детей: мужу или жене?
-\n18:10​ Заработал 37 млн руб и получил невроз
-\n20:50​ Лучший совет тем, кто только пришел на биржу
-\n31:00​ По рублю, интервенциям и притоку капитала в Россию
-\n44:00​ Разгон Казаньоргсинтез-преф\n
-
-\n❤️Задонать от души: www.donationalerts.com/r/timm...​
-\nⓂ️Мой телеграм: t.me/martynovtim​
-\n🔈Яндекс подкаст: music.yandex.ru/album/11697227" />
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/txtDetailTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatarDetail" />
+        app:layout_constraintTop_toTopOf="@+id/divider3">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/contentDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                tools:text="Заимствование денег для покупки акций — еще одно рискованное занятие фондового рынка, которое стремительно растет. На приведенном ниже графике маржинального долга NYSE показано, что самый последний всплеск использования маржинального долга начался в марте прошлого года. К ноябрю общий маржинальный долг NYSE подскочил до 722 миллиардов долларов, что стало новым рекордом. Хотя маржинальный долг как процент от капитализации фондового рынка еще не достиг рекордных уровней, на приведенной ниже правой диаграмме показано, что маржинальный долг как процент от располагаемого дохода близок к рекорду. Самый последний показатель в 4,7% выше, чем на пике фондового рынка 2007 года, и близок к его уровню около вершины рынка 2000 года. С учетом того, что занятость и экономические условия сейчас намного более нестабильны, чем на любом из предыдущих пиков, маржин-коллы, вероятно, будут гораздо более разрушительными, чем во время любого из предшествующих медвежьих рынков, которые последовали за этим." />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center|end"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/shareDetail"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:tint="@color/gray"
+                    app:srcCompat="@drawable/ic_share" />
+
+                <View
+                    android:id="@+id/divider8"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/favoriteDetail"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:tint="@color/gray"
+                    app:srcCompat="@drawable/ic_star_border" />
+
+                <TextView
+                    android:id="@+id/favoriteCountDetail"
+                    android:layout_width="24dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:gravity="center"
+                    android:text="0"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/likeDetail"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:tint="@color/gray"
+                    app:srcCompat="@drawable/ic_favorite_border" />
+
+                <TextView
+                    android:id="@+id/likeCountDetail"
+                    android:layout_width="24dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:gravity="center"
+                    android:text="0"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/comments" />
+
+                <TextView
+                    android:id="@+id/countComments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="0"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commentRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:layout_marginTop="8dp"
+                android:id="@+id/sendComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/send_comment" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
