@@ -51,7 +51,7 @@
             android:id="@+id/countLikes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="11dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
             android:id="@+id/likeImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/countLikes"
@@ -126,6 +126,7 @@
             app:layout_constraintStart_toEndOf="@+id/avatarImg"
             app:layout_constraintTop_toBottomOf="@+id/authorText"
             app:layout_constraintVertical_bias="0.0"
+            tools:ignore="SmallSp"
             tools:text="18 января 2021, 21:17" />
 
         <TextView
