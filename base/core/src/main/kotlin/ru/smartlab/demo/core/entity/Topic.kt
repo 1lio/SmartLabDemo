@@ -6,7 +6,7 @@ class Topic(
     val content: String = "",
     val author: User = User("default"),
     val date: String = "",
-    val countViews: Int = 0,
+    val countReviews: Int = 0,
     val countComments: Int = 0,
     val countLikes: Int = 0
 )

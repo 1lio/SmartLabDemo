@@ -18,7 +18,7 @@ data class TopicJSON(
             content = "",
             author = User(authorName),
             date = date,
-            countViews = 0,
+            countReviews = 0,
             countComments = countComments.toInt(),
             countLikes = 0
         )
