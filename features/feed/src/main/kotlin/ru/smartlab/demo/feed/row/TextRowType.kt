@@ -3,6 +3,7 @@ package ru.smartlab.demo.feed.row
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ru.smartlab.demo.core.entity.Topic
+import ru.smartlab.demo.core.utils.Constants.BASE_SITE
 import ru.smartlab.demo.feed.factory.ViewHolderFactory
 
 class TextRowType(private val item: Topic) : RowType {
@@ -20,14 +21,12 @@ class TextRowType(private val item: Topic) : RowType {
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder) {
         val holder = viewHolder as ViewHolderFactory.TextViewHolder
 
-
-        Picasso.get().load("https://smart-lab.ru/${item.author.avatarUrl}").into(holder.avatarImg)
+        Picasso.get().load("$BASE_SITE/${item.author.avatarUrl}").into(holder.avatarImg)
 
         holder.likeView.background
 
         holder.contentTextView.text = ("""
-            ${item.title}
-            
+            ${item.title}    
             ${item.content}
         """.trimIndent())
         holder.authorTextView.text = item.author.name
