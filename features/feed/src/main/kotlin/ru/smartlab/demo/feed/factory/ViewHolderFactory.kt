@@ -4,18 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.VideoView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import ru.smartlab.demo.feed.R
 import ru.smartlab.demo.feed.row.RowType
+import ru.smartlab.demo.feed.view.CircleImageView
 
 
 object ViewHolderFactory {
 
     class TextViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val avatarImg: AppCompatImageView = view.findViewById(R.id.avatarImg)
+        val avatarImg: CircleImageView = view.findViewById(R.id.avatarImg)
         val authorTextView: TextView = view.findViewById(R.id.authorText)
         val dateTextView: TextView = view.findViewById(R.id.dateText)
 
@@ -29,7 +29,7 @@ object ViewHolderFactory {
     }
 
     class ImageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val avatarImg: AppCompatImageView = view.findViewById(R.id.avatarImg)
+      /*  val avatarImg: CircleImageView = view.findViewById(R.id.avatarImg)
         val authorTextView: TextView = view.findViewById(R.id.authorText)
         val dateTextView: TextView = view.findViewById(R.id.dateText)
 
@@ -40,12 +40,12 @@ object ViewHolderFactory {
         val likeView: AppCompatImageView = view.findViewById(R.id.likeImg)
 
         val contentTextView: TextView = view.findViewById(R.id.contentText)
-        val contentImage: AppCompatImageView = view.findViewById(R.id.imageContent)
+        val contentImage: AppCompatImageView = view.findViewById(R.id.imageContent)*/
     }
 
     class VideoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val avatarImg: AppCompatImageView = view.findViewById(R.id.avatarImg)
+      /*  val avatarImg: CircleImageView = view.findViewById(R.id.avatarImg)
         val authorTextView: TextView = view.findViewById(R.id.authorText)
         val dateTextView: TextView = view.findViewById(R.id.dateText)
 
@@ -56,7 +56,7 @@ object ViewHolderFactory {
         val likeView: AppCompatImageView = view.findViewById(R.id.likeImg)
 
         val contentTextView: TextView = view.findViewById(R.id.contentText)
-        val contentVideoView: VideoView = view.findViewById(R.id.videoContentView)
+        val contentVideoView: VideoView = view.findViewById(R.id.videoContentView)*/
     }
 
     fun create(parent: ViewGroup, itemType: Int): RecyclerView.ViewHolder {
