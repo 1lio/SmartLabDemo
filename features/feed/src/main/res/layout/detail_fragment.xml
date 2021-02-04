@@ -116,7 +116,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/favoriteDetail"
+                    android:id="@+id/favoriteDetailImage"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="8dp"
