@@ -77,6 +77,9 @@ object Config {
 
             // SharedPref
             const val hawk = "com.orhanobut:hawk:2.0.1"
+
+            // Images Network
+            const val picasso = "com.squareup.picasso:picasso:2.71828"
         }
 
         object Compose {
