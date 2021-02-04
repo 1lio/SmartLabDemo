@@ -1,6 +1,5 @@
 package ru.smartlab.demo.network.impl
 
-import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -63,10 +62,10 @@ class SmartLabParserImpl : SmartLabApi {
                         .toIntNotNull()
 
                     // Пока кол-во просмотров невозможно спарсить, т.к. они подгружаются автоматически.
-                    val reviews = e
+                   /* val reviews = e
                         .select(".main_content__item-footer--reviews")
                         .text()
-                        .toIntNotNull()
+                        .toIntNotNull()*/
 
                     val comments = e
                         .select(".main_content__item-footer--comments")
@@ -79,7 +78,7 @@ class SmartLabParserImpl : SmartLabApi {
                         content = content,
                         author = author,
                         date = date,
-                        countReviews = reviews,
+                      //  countReviews = reviews,
                         countComments = comments,
                         countLikes = likes
                     )
