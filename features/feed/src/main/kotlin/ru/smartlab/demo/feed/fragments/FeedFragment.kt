@@ -50,7 +50,7 @@ class FeedFragment(private val feedType: Int = 0) : Fragment() {
             feedFlow.collect {
                 it.forEach { topic ->
                     // TODO: Определить тип ячейки
-                    items.add(TextRowType(topic))
+                    items.add(TextRowType(topic, context!!))
                     adapter.notifyItemChanged(items.size)
                 }
             }
