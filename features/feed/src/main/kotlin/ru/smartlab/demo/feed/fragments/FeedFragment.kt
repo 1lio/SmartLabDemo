@@ -37,7 +37,7 @@ class FeedFragment(private val feedType: Int = 0) : Fragment() {
 
         GlobalScope.launch(Dispatchers.Main) {
 
-/*            val feedFlow = when (feedType) {
+            val feedFlow = when (feedType) {
                 FeedType.FEED -> repository.getFeed()
                 FeedType.FEED_ALL -> repository.getFeedAll()
                 FeedType.FEED_TOP_DAY -> repository.getFeedTop(FeedTop.TOP_DAY)
@@ -45,15 +45,15 @@ class FeedFragment(private val feedType: Int = 0) : Fragment() {
                 FeedType.FEED_TOP_MOUTH -> repository.getFeedTop(FeedTop.TOP_MOUNT)
                 FeedType.FEED_TOP_ALL -> repository.getFeedTop(FeedTop.TOP_ALL)
                 else -> repository.getFeed()
-            }*/
+            }
 
-       /*     feedFlow.collect {
+            feedFlow.collect {
                 it.forEach { topic ->
                     // TODO: Определить тип ячейки
                     items.add(TextRowType(topic))
                     adapter.notifyItemChanged(items.size)
                 }
-            }*/
+            }
         }
 
         return v
