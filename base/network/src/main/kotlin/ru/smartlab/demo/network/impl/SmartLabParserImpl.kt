@@ -1,5 +1,6 @@
 package ru.smartlab.demo.network.impl
 
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -10,6 +11,7 @@ import ru.smartlab.demo.core.entity.Topic
 import ru.smartlab.demo.core.entity.User
 import ru.smartlab.demo.core.utils.Constants.BASE_URL
 import ru.smartlab.demo.network.api.SmartLabApi
+import java.net.SocketTimeoutException
 
 class SmartLabParserImpl : SmartLabApi {
 
@@ -27,61 +29,71 @@ class SmartLabParserImpl : SmartLabApi {
 
     private fun parse(url: String = "/"): Flow<List<Topic>> {
         return flow {
-            val jsoupDocument = Jsoup
-                .connect("$BASE_URL$url")
-                .referrer("http://www.google.com")
-                .timeout(3000)
-                .get()
 
-            val elements: Elements = jsoupDocument.select(".main_content__item")
+            try {
+                val jsoupDocument = Jsoup
+                    .connect("$BASE_URL$url")
+                    .referrer("http://www.google.com")
+                    .timeout(3000)
+                    .get()
 
-            val mutableList = mutableListOf<Topic>()
+                val elements: Elements = jsoupDocument.select(".main_content__item")
 
-            for (e in elements) {
+                val mutableList = mutableListOf<Topic>()
 
-                val title = e.select(".main_content__item-title ").text()
+                for (e in elements) {
 
-                val content = e.select(".main_content__item-text").text()
-                // val link = e.select(".title ").attr("abs:href")
+                    val tId = e.attr("tid")
 
-                val date = e.select(".main_content__item-time ").text()
+                    val title = e.select(".main_content__item-title ").text()
 
-                val author = User(
-                    name = e.select(".main_content__item-author").text(),
-                    avatarUrl = e.select(".main_content__item-avatar").attr("src")
-                )
+                    val content = e.select(".main_content__item-text").text()
+                    // val link = e.select(".title ").attr("abs:href")
 
+                    val date = e.select(".main_content__item-time ").text()
 
-                val likes = e
-                    .select(".main_content__item-footer--likes")
-                    .text()
-                    .toIntNotNull()
+                    val author = User(
+                        name = e.select(".main_content__item-author").text(),
+                        avatarUrl = e.select(".main_content__item-avatar").attr("src")
+                    )
 
-                // Пока кол-во просмотров невозможно спарсить, т.к. они подгружаются автоматически.
-                val reviews = e
-                    .select(".main_content__item-footer--reviews")
-                    .text()
-                    .toIntNotNull()
+                    val likes = e
+                        .select(".main_content__item-footer--likes")
+                        .text()
+                        .toIntNotNull()
 
-                val comments = e
-                    .select(".main_content__item-footer--comments")
-                    .text()
-                    .toIntNotNull()
+                    // Пока кол-во просмотров невозможно спарсить, т.к. они подгружаются автоматически.
+                    val reviews = e
+                        .select(".main_content__item-footer--reviews")
+                        .text()
+                        .toIntNotNull()
 
-                val feed = Topic(
-                    title = title,
-                    content = content,
-                    author = author,
-                    date = date,
-                    countReviews = reviews,
-                    countComments = comments,
-                    countLikes = likes
-                )
+                    val comments = e
+                        .select(".main_content__item-footer--comments")
+                        .text()
+                        .toIntNotNull()
 
-                //  Log.i("JHJHDFIU", feed.countReviews.toString())
-                mutableList.add(feed)
+                    val feed = Topic(
+                        tId = tId.toIntNotNull(),
+                        title = title,
+                        content = content,
+                        author = author,
+                        date = date,
+                        countReviews = reviews,
+                        countComments = comments,
+                        countLikes = likes
+                    )
+
+                    mutableList.add(feed)
+                }
+                emit(mutableList)
+
+            } catch (e: SocketTimeoutException) {
+                emit(listOf<Topic>())
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-            emit(mutableList)
+
         }.flowOn(Dispatchers.IO)
     }
 
