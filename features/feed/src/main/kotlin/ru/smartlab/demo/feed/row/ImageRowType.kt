@@ -19,7 +19,7 @@ class ImageRowType(private val text: String) : RowType {
         val buttonViewHolder: ViewHolderFactory.ImageViewHolder =
             viewHolder as ViewHolderFactory.ImageViewHolder
 
-        buttonViewHolder.contentTextView.text = text
-        buttonViewHolder.contentTextView.setOnClickListener(getOnClickListener())
+        //buttonViewHolder.contentTextView.text = text
+       // buttonViewHolder.contentTextView.setOnClickListener(getOnClickListener())
     }
 }
