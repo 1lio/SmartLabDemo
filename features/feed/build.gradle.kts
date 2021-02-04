@@ -12,6 +12,8 @@ dependencies {
 
     implementation(Config.Libs.Mics.jsoup)
 
+    implementation(Config.Libs.Mics.picasso)
+
     // modules
     api(project(":core"))
     api(project(":network"))
