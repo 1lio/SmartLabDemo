@@ -9,4 +9,5 @@
     <string name="top_30">Месяц</string>
     <string name="top_all">Все время</string>
     <string name="comments">Комментарии</string>
+    <string name="send_comment">Отправить комментарий</string>
 </resources>
