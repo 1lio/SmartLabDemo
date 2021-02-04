@@ -4,7 +4,8 @@
     <color name="white">#ffffff</color>
     <color name="grayLight">#a6a6a6</color>
     <color name="blueGray">#67889E</color>
-    <color name="green">#00FF74</color>
+    <color name="orange">#00FF74</color>
+    <color name="yellow">#FF5722</color>
     <color name="red">#CD1F2E</color>
     <color name="transparent">#9A0093FE</color>
 </resources>
