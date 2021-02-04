@@ -8,6 +8,7 @@ import org.jsoup.Jsoup
 import org.jsoup.select.Elements
 import ru.smartlab.demo.core.entity.Topic
 import ru.smartlab.demo.core.entity.User
+import ru.smartlab.demo.core.utils.Constants.BASE_URL
 import ru.smartlab.demo.network.api.SmartLabApi
 
 class SmartLabParserImpl : SmartLabApi {
@@ -27,7 +28,7 @@ class SmartLabParserImpl : SmartLabApi {
     private fun parse(url: String = "/"): Flow<List<Topic>> {
         return flow {
             val jsoupDocument = Jsoup
-                .connect("https://smart-lab.ru/read$url")
+                .connect("$BASE_URL$url")
                 .referrer("http://www.google.com")
                 .timeout(3000)
                 .get()
