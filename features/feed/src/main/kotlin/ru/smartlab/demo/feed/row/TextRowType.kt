@@ -1,7 +1,6 @@
 package ru.smartlab.demo.feed.row
 
 import android.content.Context
-import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -15,10 +14,11 @@ class TextRowType(private val item: Topic, private val context: Context) : RowTy
     override fun getItemType(): Int = RowType.TEXT
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder) {
+
         val holder = viewHolder as ViewHolderFactory.TextViewHolder
 
         holder.itemView.setOnClickListener {
-            //
+            // Open Detail Fragment
         }
 
         Picasso.get().load("$BASE_SITE/${item.author.avatarUrl}").into(holder.avatarImg)
@@ -45,8 +45,6 @@ class TextRowType(private val item: Topic, private val context: Context) : RowTy
 
             holder.countLikes.text = item.countLikes.toString()
             holder.likeView.setImageDrawable(bg)
-
-            Log.i("dsgdsggsdg", "Click")
         }
 
         holder.titleTextView.text = item.title
