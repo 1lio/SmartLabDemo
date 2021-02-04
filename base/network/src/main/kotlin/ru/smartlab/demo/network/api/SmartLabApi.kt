@@ -12,13 +12,13 @@ interface SmartLabApi {
     fun getFeedAll(): Flow<List<Topic>>
 
     // Лучшие топики по топам (0-день, 1-7дней, 2-30дней, 3-За Все время)
-    fun getFeedTop(top: Int = FeedTop.TOP_DAY): Flow<List<Topic>>
+    fun getFeedTop(top: String = FeedTop.TOP_DAY): Flow<List<Topic>>
 
     // Заранее сохраненные константы
     object FeedTop {
-        const val TOP_DAY = 0
-        const val TOP_WEEK = 1
-        const val TOP_MOUNT = 2
-        const val TOP_ALL = 3
+        const val TOP_DAY = "24h"
+        const val TOP_WEEK = "7d"
+        const val TOP_MOUNT = "30d"
+        const val TOP_ALL = "all"
     }
 }
