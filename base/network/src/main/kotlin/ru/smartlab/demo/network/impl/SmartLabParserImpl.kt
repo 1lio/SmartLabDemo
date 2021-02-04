@@ -1,121 +1,93 @@
 package ru.smartlab.demo.network.impl
 
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import org.jsoup.Jsoup
+import org.jsoup.select.Elements
 import ru.smartlab.demo.core.entity.Topic
 import ru.smartlab.demo.core.entity.User
 import ru.smartlab.demo.network.api.SmartLabApi
-import ru.smartlab.demo.network.service.HtmlParser
 
 class SmartLabParserImpl : SmartLabApi {
 
     override fun getFeed(): Flow<List<Topic>> {
-
-        val topics = mutableListOf<Topic>()
-
-        val l = HtmlParser
-            .single(
-                root = ".topic",
-                keys = arrayOf(
-                    ".title ", ".content", ".title", ".date ", ".author",
-                    ".total", ".views-total", ".comments-total"
-                )
-            )
-
-        val topic = Topic(
-            title = l[0],
-            content = l[1],
-            author = User(l[2]),
-            date = l[3],
-            countViews = l[4].toIntNotNull(),
-            countComments = l[5].toIntNotNull(),
-            countLikes = l[6].toIntNotNull(),
-        )
-
-        topics.add(topic)
-
-        return flow {
-
-            var lastListSize = 0
-            val newListSize = topics.size
-
-            while (true) {
-
-                if (newListSize > lastListSize) {
-                    emit(topics)
-                    lastListSize = newListSize
-                }
-            }
-
-        }.flowOn(Dispatchers.IO)
-
-
-/* override fun getFeed(): Flow<List<Topic>> {
- return flow {
-     val jsoupDocument = Jsoup
-         .connect("https://smart-lab.ru/")
-         .referrer("http://www.google.com")
-         .timeout(3000)
-         .get()
-
-     val elements: Elements = jsoupDocument.select(".topic")
-
-     val mutableList = mutableListOf<Topic>()
-
-     for (e in elements) {
-
-         val title = e.select(".title ").text()
-
-         val content = e.select(".content").text()
-         // val link = e.select(".title ").attr("abs:href")
-
-         val date = e.select(".date ").text()
-
-         val author = User(
-             name = e.select(".author").text()
-         )
-
-         val likes = e.select(".total").text().let {
-             if (it.isNullOrEmpty()) 0 else it.toInt()
-         }
-
-         // Пока не получается корректно спарсить колличество просмотров
-         val views = e.select(".views-total").attr("abs:title").let {
-
-             if (it.isNullOrEmpty()) 0 else it.toInt()
-         }
-
-         val comments = e.select(".comments-total").select(".red").text().let {
-             if (it.isNullOrEmpty()) 0 else it.toInt()
-         }
-
-         val feed = Topic(
-             title = title,
-             content = content,
-             author = author,
-             date = date,
-             countViews = views,
-             countComments = comments,
-             countLikes = likes
-         )
-
-         mutableList.add(feed)
-     }
-     emit(mutableList)
- }.flowOn(Dispatchers.IO)*/
-
+        return parse("/")
     }
 
     override fun getFeedAll(): Flow<List<Topic>> {
-        TODO("Not yet implemented")
+        return parse("/all")
     }
 
-    override fun getFeedTop(top: Int): Flow<List<Topic>> {
-        TODO("Not yet implemented")
+    override fun getFeedTop(top: String): Flow<List<Topic>> {
+        return parse("/top/$top")
     }
 
+    private fun parse(url: String = "/"): Flow<List<Topic>> {
+        return flow {
+            val jsoupDocument = Jsoup
+                .connect("https://smart-lab.ru/read$url")
+                .referrer("http://www.google.com")
+                .timeout(3000)
+                .get()
+
+            val elements: Elements = jsoupDocument.select(".main_content__item")
+
+            val mutableList = mutableListOf<Topic>()
+
+            for (e in elements) {
+
+                val title = e.select(".main_content__item-title ").text()
+
+                val content = e.select(".main_content__item-text").text()
+                // val link = e.select(".title ").attr("abs:href")
+
+                val date = e.select(".main_content__item-time ").text()
+
+                val author = User(
+                    name = e.select(".main_content__item-author").text(),
+                    avatarUrl = e.select(".main_content__item-avatar").attr("src")
+                )
+
+
+                Log.i("JHJHDFIU", author.avatarUrl ?: "not")
+
+                val likes = e
+                    .select(".main_content__item-footer--likes")
+                    .text()
+                    .toIntNotNull()
+
+                val reviews = e
+                    .select(".main_content__item-footer--reviews")
+                    .text()
+                    .toIntNotNull()
+
+
+                //  Log.i("JHJHDFIU", reviews.toString())
+
+                val comments = e
+                    .select(".main_content__item-footer--comments")
+                    .text()
+                    .toIntNotNull()
+
+                val feed = Topic(
+                    title = title,
+                    content = content,
+                    author = author,
+                    date = date,
+                    countReviews = reviews,
+                    countComments = comments,
+                    countLikes = likes
+                )
+
+                //  Log.i("JHJHDFIU", feed.countReviews.toString())
+                mutableList.add(feed)
+            }
+            emit(mutableList)
+        }.flowOn(Dispatchers.IO)
+    }
 
     private fun String.toIntNotNull(): Int = this.let { if (it.isEmpty()) 0 else it.toInt() }
 }
