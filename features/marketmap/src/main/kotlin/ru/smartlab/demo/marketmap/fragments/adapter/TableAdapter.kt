@@ -18,38 +18,28 @@ class TableAdapter(private var list: List<Any>) : RecyclerView.Adapter<RecyclerV
     private var ctx: Context? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
         ctx = parent.context
-        return if (viewType == 1) {
-            DirectionViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.group_divider, parent, false)
-            )
-        } else {
-            CompanyViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.table_item, parent, false)
-            )
+
+        return when (viewType) {
+            1 -> TextViewHolder(LayoutInflater.from(ctx).inflate(R.layout.group_divider, parent, false))
+            else -> CompanyViewHolder(LayoutInflater.from(ctx).inflate(R.layout.table_item, parent, false))
         }
     }
 
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is DirectionViewHolder -> holder.bind(list[position] as String)
+            is TextViewHolder -> holder.bind(list[position] as String)
             is CompanyViewHolder -> holder.bind(list[position] as ExchangeInstrument)
         }
     }
 
     override fun getItemCount(): Int = list.size
 
-    override fun getItemViewType(position: Int): Int {
-        return if (list[position] is String) 1 else 0
-    }
+    override fun getItemViewType(position: Int) = if (list[position] is String) 1 else 0
 
-    fun addAllAndNotify(items: List<Any>) {
-        this.list = items
-        notifyDataSetChanged()
-    }
-
-    class DirectionViewHolder(v: View) : BaseViewHolder<String>(v) {
+    // ViewHolder для заголовков в списке
+    private inner class TextViewHolder(v: View) : BaseViewHolder<String>(v) {
 
         private val texTitle: TextView = v.findViewById(R.id.titleDivider)
 
@@ -58,7 +48,8 @@ class TableAdapter(private var list: List<Any>) : RecyclerView.Adapter<RecyclerV
         }
     }
 
-    inner class CompanyViewHolder(v: View) : BaseViewHolder<ExchangeInstrument>(v) {
+    // ViewHolder с карточкой компании
+    private inner class CompanyViewHolder(v: View) : BaseViewHolder<ExchangeInstrument>(v) {
 
         private val tableItemContainer: ConstraintLayout = v.findViewById(R.id.tableItemContainer)
         private val textTicket: TextView = v.findViewById(R.id.textTicket)
