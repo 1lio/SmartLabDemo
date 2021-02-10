@@ -2,6 +2,8 @@ package ru.smartlab.demo.feed.row
 
 import android.content.Context
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ru.smartlab.demo.core.entity.Topic
@@ -18,7 +20,11 @@ class TextRowType(private val item: Topic, private val context: Context) : RowTy
         val holder = viewHolder as ViewHolderFactory.TextViewHolder
 
         holder.itemView.setOnClickListener {
-            // Open Detail Fragment
+            val bundle = bundleOf(TOPIC_ID to item.tId)
+
+            holder.itemView.findNavController().navigate(
+                R.id.action_feedMainFragment2_to_feedDetail,
+                bundle)
         }
 
         Picasso.get().load("$BASE_SITE/${item.author.avatarUrl}").into(holder.avatarImg)
@@ -56,5 +62,9 @@ class TextRowType(private val item: Topic, private val context: Context) : RowTy
         holder.countViews.text = item.countReviews.toString()
         holder.countComments.text = item.countComments.toString()
         holder.countLikes.text = item.countLikes.toString()
+    }
+
+    companion object {
+        const val TOPIC_ID = "topicId"
     }
 }

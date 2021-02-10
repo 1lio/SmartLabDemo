@@ -11,7 +11,7 @@ object Config {
     const val applicationID = "ru.smartlab.demo"
 
     private const val kotlinVersion = "1.4.30"
-    private const val navVersion = "2.3.2"
+    private const val navVersion = "2.3.3"
 
     object SdkVersions {
         const val compile = 30

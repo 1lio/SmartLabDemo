@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/feedMainFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="ru.smartlab.demo.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/feedMainFragment"
+        android:name="ru.smartlab.demo.feed.fragments.FeedMainFragment"
+        tools:layout="@layout/fr_tab"
+        android:label="FeedMainFragment" >
+    </fragment>
+
 </navigation>

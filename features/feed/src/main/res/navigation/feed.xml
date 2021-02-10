@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feed"
+    app:startDestination="@id/feedMainFragment2">
+
+    <fragment
+        android:id="@+id/feedMainFragment2"
+        android:name="ru.smartlab.demo.feed.fragments.FeedFragment"
+        android:label="FeedMainFragment"
+        tools:layout="@layout/fr_tab">
+        <action
+            android:id="@+id/action_feedMainFragment2_to_feedDetail"
+            app:destination="@id/feedDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedDetail"
+        android:name="ru.smartlab.demo.feed.fragments.FeedDetail"
+        tools:layout="@layout/detail_fragment"
+        android:label="FeedDetail" />
+</navigation>
