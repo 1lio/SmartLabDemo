@@ -10,7 +10,7 @@ object Config {
 
     const val applicationID = "ru.smartlab.demo"
 
-    private const val kotlinVersion = "1.4.30"
+    private const val kotlinVersion = "1.4.31"
     private const val navVersion = "2.3.3"
 
     object SdkVersions {
@@ -23,6 +23,7 @@ object Config {
         const val gradleAndroid = "com.android.tools.build:gradle:4.1.2"
         const val gradleKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         const val googleServices = "com.google.gms:google-services:4.3.4"
+        const val daggerHilt = "com.google.dagger:hilt-android-gradle-plugin:2.33-beta"
     }
 
     object Libs {
@@ -63,6 +64,11 @@ object Config {
             const val navigationDynamic =
                 "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
 
+            private const val hiltVer = "2.33-beta"
+
+            const val hiltAndroid = "com.google.dagger:hilt-android:$hiltVer"
+            const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$hiltVer"
+            const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
         }
 
         object Mics {
