@@ -30,11 +30,11 @@ dependencies {
     androidTestImplementation(Config.Libs.Test.espressoIntents)
 
     // modules
-    implementation(project(":navigation"))
+   // implementation(project(":navigation"))
 
-    implementation(project(":account"))
-    implementation(project(":chat"))
-    implementation(project(":feed"))
-    implementation(project(":splash"))
-    implementation(project(":marketmap"))
+   // implementation(project(":account"))
+   // implementation(project(":chat"))
+   // implementation(project(":feed"))
+   // implementation(project(":splash"))
+   // implementation(project(":marketmap"))
 }

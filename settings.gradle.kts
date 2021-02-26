@@ -5,20 +5,20 @@ rootProject.name = "SmartLabDemo"
 include(":app")
 
 addModule("core", isCore = true)
-addModule("repo", isCore = true)
-addModule("network", isCore = true)
+// addModule("repo", isCore = true)
+// addModule("network", isCore = true)
 
 // features
-addModule("auth")
-addModule("account")
-addModule("chat")
-addModule("feed")
-addModule("splash")
-addModule("marketmap")
-addModule("stocklenta")
+// addModule("auth")
+// addModule("account")
+// addModule("chat")
+// addModule("feed")
+// addModule("splash")
+// addModule("marketmap")
+// addModule("stocklenta")
 
 //tmp
-addModule("navigation", isCore = true)
+// addModule("navigation", isCore = true)
 
 val appID = "ru.smartlab.demo"
 
