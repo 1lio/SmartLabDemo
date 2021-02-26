@@ -19,6 +19,10 @@ dependencies {
     implementation(Config.Libs.Androidx.navigationUI)
     implementation(Config.Libs.Androidx.navigationFragment)
 
+    // Hilt
+    implementation(Config.Libs.Androidx.hiltAndroid)
+    kapt(Config.Libs.Androidx.hiltCompiler)
+
     // Tests
     testImplementation(Config.Libs.Test.junit)
     androidTestImplementation(Config.Libs.Test.junitExt)
@@ -30,11 +34,11 @@ dependencies {
     androidTestImplementation(Config.Libs.Test.espressoIntents)
 
     // modules
-   // implementation(project(":navigation"))
+    // implementation(project(":navigation"))
 
-   // implementation(project(":account"))
-   // implementation(project(":chat"))
-   // implementation(project(":feed"))
-   // implementation(project(":splash"))
-   // implementation(project(":marketmap"))
+    // implementation(project(":account"))
+    // implementation(project(":chat"))
+    // implementation(project(":feed"))
+    // implementation(project(":splash"))
+    // implementation(project(":marketmap"))
 }

@@ -10,6 +10,7 @@ buildscript {
         classpath(Config.Plugins.gradleAndroid)
         classpath(Config.Plugins.gradleKotlin)
         classpath(Config.Plugins.googleServices)
+        classpath(Config.Plugins.daggerHilt)
     }
 }
 
@@ -31,6 +32,8 @@ fun Project.configureAndroid() {
     // Base plugins
     apply(plugin = "com.android.$type")
     apply(plugin = "org.jetbrains.kotlin.android")
+    apply(plugin = "org.jetbrains.kotlin.kapt")
+    apply(plugin = "dagger.hilt.android.plugin")
 
     configure<com.android.build.gradle.BaseExtension> {
 
@@ -61,7 +64,6 @@ fun Project.configureAndroid() {
                 isMinifyEnabled = false
                 isTestCoverageEnabled = true
             }
-
         }
 
         compileOptions {
@@ -88,5 +90,10 @@ fun Project.configureAndroid() {
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.useIR = true
     }
+}
+
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
 }
